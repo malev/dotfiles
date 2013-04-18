@@ -14,6 +14,11 @@ ln -s ../tmux.conf ~/.tmux.conf
 ln -s ../gitconfig ~/.gitconfig
 ```
 
+Also you need to install ctags:
+
+```
+sudo apt-get install exuberant-ctags
+```
 tmux
 ----
 
@@ -46,3 +51,13 @@ Vim's plugins
 - [ConqueTerm](https://github.com/rosenfeld/conque-term)
 - [Surround](https://github.com/tpope/vim-surround)
 - [Autoclose](https://github.com/Townk/vim-autoclose)
+- [Vim-indent-objects](https://github.com/michaeljsmith/vim-indent-object)
+- [AutoComplPop](http://www.vim.org/scripts/script.php?script_id=1879)
+- [IndexedSearch](http://www.vim.org/scripts/script.php?script_id=1682)
+- [YankRing](http://www.vim.org/scripts/script.php?script_id=1234)
+- [CoffeeScript](https://github.com/kchmck/vim-coffee-script)
+- [Syntastic](https://github.com/scrooloose/syntastic)
+- [VimRails](https://github.com/tpope/vim-rails)
+- [VimHAML](https://github.com/tpope/vim-haml)
+- [Fugitive](https://github.com/tpope/vim-fugitive)
+- [Distinguished](https://github.com/Lokaltog/vim-distinguished)
