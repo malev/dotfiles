@@ -34,10 +34,15 @@ git
 - Whitespaces revealer 
 - Alias for checkout (co), branch (br) and log (l)
 
-vim
+Vim
 ---
 
 Vimrc is a fork from [@fisadev](https://twitter.com/fisadev)'s coolest project: [fisa-vim](https://github.com/fisadev/fisa-vim-config). With minor changes, python agnostic and more Ruby and Rails friendly.
+
+Vim's shortcuts
+---------------
+
+You can find them [here](https://github.com/malev/dotfiles/blob/master/VIMINFO.md)
 
 Vim's plugins
 -------------
