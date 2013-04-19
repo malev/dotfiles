@@ -63,6 +63,8 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
 " Vim theme distinguished
 Bundle 'Lokaltog/vim-distinguished'
+" Vim markdown
+Bundle 'plasticboy/vim-markdown'
 
 " Installing plugins the first time
 if iCanHazVundle == 0
@@ -101,6 +103,9 @@ set hlsearch
 
 " line numbers
 set nu
+
+" Vim markdown - to disable folding.
+let g:vim_markdown_folding_disabled=1
 
 " toggle Tagbar display
 map <F4> :TagbarToggle<CR>

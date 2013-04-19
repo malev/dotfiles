@@ -3,7 +3,6 @@ Vim
 
 Navigation
 ----------
-
 - Tabs
   * `tt`: New tab
   * `tn`: Move to next tab
@@ -24,7 +23,6 @@ Navigation
 
 Search
 ------
-
 - `,e`: Open file with recursive and fuzzy file name matching. And allows you to open the selected file on a new tab with `Ctrl-t`
 - `,g`: Fuzzy symbol finder  (classes, methods, variables, functions, ...) on the current file
 - `,f`: Fuzzy text finder on all the opened files
@@ -35,9 +33,20 @@ Search
 
 Copy and Paste
 --------------
-
 - `:set paste` Set paste mode (it wont break indentation)
 - `:set nu!` Hide line numers (so you can copy with `Ctrl + c`)
+
+ConqueTerm
+----------
+- :ConqueTerm bash
+- :ConqueTermSplit mysql -h localhost -u joe -p sock_collection
+- :ConqueTermTab Powershell.exe
+- :ConqueTermVSplit C:\Python27\python.exe
+
+Comments
+--------
+- `Ctrl-c`: Comment a single line
+- `Ctrl-x`: Uncomment a single line
 
 WIP
 ---
