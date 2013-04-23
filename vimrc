@@ -65,6 +65,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-distinguished'
 " Vim markdown
 Bundle 'plasticboy/vim-markdown'
+" vim-javascript
+Bundle 'pangloss/vim-javascript'
 
 " Installing plugins the first time
 if iCanHazVundle == 0

@@ -67,6 +67,7 @@ Vim's plugins
 - [Fugitive](https://github.com/tpope/vim-fugitive)
 - [Distinguished](https://github.com/Lokaltog/vim-distinguished)
 - [VimMarkdown](https://github.com/plasticboy/vim-markdown)
+- [Vim-Javascript](https://github.com/pangloss/vim-javascript)
 
 License
 -------
