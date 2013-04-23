@@ -36,13 +36,6 @@ Copy and Paste
 - `:set paste` Set paste mode (it wont break indentation)
 - `:set nu!` Hide line numers (so you can copy with `Ctrl + c`)
 
-ConqueTerm
-----------
-- :ConqueTerm bash
-- :ConqueTermSplit mysql -h localhost -u joe -p sock_collection
-- :ConqueTermTab Powershell.exe
-- :ConqueTermVSplit C:\Python27\python.exe
-
 Comments
 --------
 - `Ctrl-c`: Comment a single line

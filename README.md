@@ -53,7 +53,6 @@ Vim's plugins
 - [TagBar](http://majutsushi.github.io/tagbar/)
 - [ControlP](https://github.com/kien/ctrlp.vim)
 - [VimPowerLine](https://github.com/Lokaltog/vim-powerline)
-- [ConqueTerm](https://github.com/rosenfeld/conque-term)
 - [Surround](https://github.com/tpope/vim-surround)
 - [Autoclose](https://github.com/Townk/vim-autoclose)
 - [Vim-indent-objects](https://github.com/michaeljsmith/vim-indent-object)

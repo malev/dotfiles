@@ -33,8 +33,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/tabman.vim'
 " Powerline
 Bundle 'Lokaltog/vim-powerline'
-" Consoles as buffers
-Bundle 'rosenfeld/conque-term'
 " Surround
 Bundle 'tpope/vim-surround'
 " Autoclose
