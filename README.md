@@ -18,6 +18,7 @@ Also you need to install ctags:
 
 ```
 sudo apt-get install exuberant-ctags
+sudo apt-get install ack-grep
 ```
 tmux
 ----
@@ -67,6 +68,7 @@ Vim's plugins
 - [Distinguished](https://github.com/Lokaltog/vim-distinguished)
 - [VimMarkdown](https://github.com/plasticboy/vim-markdown)
 - [Vim-Javascript](https://github.com/pangloss/vim-javascript)
+- [ACKVim](https://github.com/mileszs/ack.vim)
 
 License
 -------

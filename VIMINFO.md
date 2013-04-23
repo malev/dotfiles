@@ -26,8 +26,7 @@ Search
 - `,e`: Open file with recursive and fuzzy file name matching. And allows you to open the selected file on a new tab with `Ctrl-t`
 - `,g`: Fuzzy symbol finder  (classes, methods, variables, functions, ...) on the current file
 - `,f`: Fuzzy text finder on all the opened files
-- `,R`: RecurGrep
-- `,r`: RecurGrepFast
+- `,r`: Ack - You can open your files with: o (open), go (preview), t (open in a new tab), h-v (open in a split), H-V(open in a split silently)
 - `/`: Search in current file
 - [Search and replace](http://vim.wikia.com/wiki/Search_and_replace)
 
