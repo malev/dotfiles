@@ -69,6 +69,7 @@ Vim's plugins
 - [VimMarkdown](https://github.com/plasticboy/vim-markdown)
 - [Vim-Javascript](https://github.com/pangloss/vim-javascript)
 - [ACKVim](https://github.com/mileszs/ack.vim)
+- [Eunuch](https://github.com/tpope/vim-eunuch)
 
 License
 -------

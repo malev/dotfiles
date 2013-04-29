@@ -67,6 +67,8 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'pangloss/vim-javascript'
 " ACK vim
 Bundle 'mileszs/ack.vim'
+" sugar for the UNIX shell commands
+Bundle 'tpope/vim-eunuch'
 
 " Installing plugins the first time
 if iCanHazVundle == 0

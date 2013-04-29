@@ -35,6 +35,12 @@ Copy and Paste
 - `:set paste` Set paste mode (it wont break indentation)
 - `:set nu!` Hide line numers (so you can copy with `Ctrl + c`)
 
+Enorch
+------
+- `:Unlink` Delete a buffer and the file on disk simultaneously.
+- `:Move` Rename a buffer and the file on disk simultaneously.
+- [other](https://github.com/tpope/vim-eunuch)
+
 Comments
 --------
 - `Ctrl-c`: Comment a single line
