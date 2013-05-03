@@ -69,6 +69,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mileszs/ack.vim'
 " sugar for the UNIX shell commands
 Bundle 'tpope/vim-eunuch'
+" Whitespaces
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Installing plugins the first time
 if iCanHazVundle == 0

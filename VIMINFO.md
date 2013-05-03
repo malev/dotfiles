@@ -46,6 +46,10 @@ Comments
 - `Ctrl-c`: Comment a single line
 - `Ctrl-x`: Uncomment a single line
 
+Clean Whitespaces
+-----------------
+- `:FixWhitespace` Boom! you don't have trailing white spaces anymore
+
 WIP
 ---
 This is not ready yet.

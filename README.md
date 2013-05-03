@@ -70,6 +70,7 @@ Vim's plugins
 - [Vim-Javascript](https://github.com/pangloss/vim-javascript)
 - [ACKVim](https://github.com/mileszs/ack.vim)
 - [Eunuch](https://github.com/tpope/vim-eunuch)
+- [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
 
 License
 -------
