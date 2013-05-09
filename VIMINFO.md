@@ -50,6 +50,10 @@ Clean Whitespaces
 -----------------
 - `:FixWhitespace` Boom! you don't have trailing white spaces anymore
 
+Remap common typos to actual commands
+-------------------------------------
+I remap stuff like :Q to :q, :W to :w and it's friends.
+
 WIP
 ---
 This is not ready yet.

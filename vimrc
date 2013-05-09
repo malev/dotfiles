@@ -237,3 +237,9 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+" Custom commands
+:ca WQ wq
+:ca Wq wq
+:ca W w
+:ca Q q
