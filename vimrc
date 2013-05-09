@@ -124,8 +124,8 @@ map <F3> :NERDTreeToggle<CR>
 " tab navigation
 map tn :tabn<CR>
 map tp :tabp<CR>
-map tm :tabm 
-map tt :tabnew 
+map tm :tabm
+map tt :tabnew
 map <C-S-Right> :tabn<CR>
 imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
@@ -210,7 +210,7 @@ let g:ctrlp_custom_ignore = {
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " Map ,r to ACK
-nmap ,r :Ack 
+nmap ,r :Ack
 
 " tabman shortcuts
 let g:tabman_toggle = 'tl'
