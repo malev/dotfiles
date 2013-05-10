@@ -130,6 +130,8 @@ map <C-S-Right> :tabn<CR>
 imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
+imap <c-l> <space>=><space>
+:nnoremap <CR> :nohlsearch<cr>
 
 " navigate windows with meta+arrows
 nnoremap <C-J> <C-W><C-J>
