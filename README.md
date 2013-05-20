@@ -32,7 +32,7 @@ git
 ---
 
 - Cool diff colored
-- Whitespaces revealer 
+- Whitespaces revealer
 - Alias for checkout (co), branch (br) and log (l)
 
 Vim
@@ -71,6 +71,11 @@ Vim's plugins
 - [ACKVim](https://github.com/mileszs/ack.vim)
 - [Eunuch](https://github.com/tpope/vim-eunuch)
 - [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+
+IRSSI
+-----
+Irssi is a terminal based IRC client for UNIX systems. It also supports SILC and ICB protocols via plugins.
+Check [this](http://www.antonfagerberg.com/archive/my-perfect-irssi-setup) for more information.
 
 License
 -------
