@@ -12,6 +12,7 @@ Clone this project, change your email con `gitconfig` and create the following s
 ln -s ../vimrc ~/.vimrc
 ln -s ../tmux.conf ~/.tmux.conf
 ln -s ../gitconfig ~/.gitconfig
+ln -s ../Xomdmap ~/.Xmodmap
 ```
 
 Also you need to install ctags:
@@ -39,6 +40,7 @@ Vim
 ---
 
 Vimrc is a fork from [@fisadev](https://twitter.com/fisadev)'s coolest project: [fisa-vim](https://github.com/fisadev/fisa-vim-config). With minor changes, python agnostic and more Ruby and Rails friendly.
+I have remapped CapsLock to Esc. That will prevent many head aches on vim usage.
 
 Vim's shortcuts
 ---------------
