@@ -246,6 +246,9 @@ augroup vimrcEx
     \ endif
 
 " Custom commands
+"
+" maps %% to the current directory
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 :ca WQ wq
 :ca Wq wq
 :ca W w
