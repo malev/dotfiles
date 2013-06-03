@@ -59,8 +59,8 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
-" Vim theme distinguished
-Bundle 'Lokaltog/vim-distinguished'
+" Vim theme solarized
+Bundle 'altercation/vim-colors-solarized'
 " Vim markdown
 Bundle 'plasticboy/vim-markdown'
 " vim-javascript
@@ -81,9 +81,11 @@ endif
 
 " Color theme
 " use 256 colors when possible
+set background=dark
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
-    color distinguished
+    let g:solarized_termcolors=256
+    color solarized
 else
     colorscheme delek
 endif

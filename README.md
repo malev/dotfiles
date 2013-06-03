@@ -65,7 +65,7 @@ Vim's plugins
 - [VimRails](https://github.com/tpope/vim-rails)
 - [VimHAML](https://github.com/tpope/vim-haml)
 - [Fugitive](https://github.com/tpope/vim-fugitive)
-- [Distinguished](https://github.com/Lokaltog/vim-distinguished)
+- [Solarized](http://ethanschoonover.com/solarized/vim-colors-solarized)
 - [VimMarkdown](https://github.com/plasticboy/vim-markdown)
 - [Vim-Javascript](https://github.com/pangloss/vim-javascript)
 - [ACKVim](https://github.com/mileszs/ack.vim)
