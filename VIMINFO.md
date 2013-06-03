@@ -54,6 +54,11 @@ Remap common typos to actual commands
 -------------------------------------
 I remap stuff like :Q to :q, :W to :w and it's friends.
 
+Special functions
+-----------------
+- `%`  Returns the current file
+- `%%` Returns the current dir
+
 WIP
 ---
 This is not ready yet.
