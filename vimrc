@@ -80,8 +80,13 @@ if iCanHazVundle == 0
 endif
 
 " Color theme
-set t_Co=256
-color distinguished
+" use 256 colors when possible
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+    let &t_Co = 256
+    color distinguished
+else
+    colorscheme delek
+endif
 
 " allow plugins by file type
 filetype plugin on
