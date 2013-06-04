@@ -104,6 +104,7 @@ set shiftwidth=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal sw=4 sts=4 et tw=72
 
 " always show status bar
 set ls=2
@@ -149,6 +150,9 @@ nnoremap <C-H> <C-W><C-H>
 " automatically close autocompletion window
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Maps ,, to Ctrl ^ -> switch between the last 2 files opened
+nnoremap ,, <c-^>
 
 " save as sudo
 ca w!! w !sudo tee "%"
