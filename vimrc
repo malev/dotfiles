@@ -121,6 +121,9 @@ set nu
 " Vim markdown - to disable folding.
 let g:vim_markdown_folding_disabled=1
 
+" toggle paste / nonpaste
+set pastetoggle=<F2>
+
 " toggle Tagbar display
 map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
