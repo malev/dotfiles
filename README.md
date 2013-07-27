@@ -28,6 +28,7 @@ tmux
 - Map vim hjkl keys
 - Status bar
 - 256 Terminal
+- Mouse support
 
 git
 ---
