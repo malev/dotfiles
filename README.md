@@ -25,7 +25,7 @@ tmux
 ----
 
 - Ctrl - A as prefix (as Screen)
-- Map vim hjkl keys
+- Map vim hjkl keys (moving as in vim)
 - Status bar
 - 256 Terminal
 - Mouse support
