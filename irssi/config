@@ -1,113 +1,79 @@
 servers = (
   {
-    address = "irc.freenode.net";
+    address = "chat.freenode.net";
     chatnet = "freenode";
     port = "6667";
-    autoconnect = "yes";
+    autoconnect = "Yes";
     nick = "malev";
+  },
+  {
+    address = "irc.mozilla.org";
+    chatnet = "mozilla";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
+
 chatnets = {
   freenode = {
     type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
     #autosendcmd = "/^msg nickserv identify YOURPASSWORD";
   };
+  mozilla = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "3";
+    max_whois = "1";
+  };
 };
+
 channels = (
-  { name = "#pyar";        chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#rubysur";     chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#ubuntu-ar";   chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#rubyonrails"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#pyar"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#rubysur"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#RubyOnRails"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ruby-lang"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#elasticsearch"; chatnet = "freenode"; autojoin = "No"; },
+
+  { name = "#opennews"; chatnet = "mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
   J = "join";
-  WJOIN = "join -window";
-  WQUERY = "query -window";
   LEAVE = "part";
-  BYE = "quit";
+  E = "exec - runz";
+  EO = "exec - -o runz";
   EXIT = "quit";
-  SIGNOFF = "quit";
-  DESCRIBE = "action";
-  DATE = "time";
-  HOST = "userhost";
-  LAST = "lastlog";
-  SAY = "msg *";
-  WI = "whois";
-  WII = "whois $0 $0";
-  WW = "whowas";
-  W = "who";
-  N = "names";
-  M = "msg";
-  T = "topic";
-  C = "clear";
-  CL = "clear";
-  K = "kick";
-  KB = "kickban";
-  KN = "knockout";
-  BANS = "ban";
-  B = "ban";
-  MUB = "unban *";
-  UB = "unban";
-  IG = "ignore";
-  UNIG = "unignore";
-  SB = "scrollback";
-  UMODE = "mode $N";
+  LL = "lastlog";
+  W = "window";
+  M = "mark";
   WC = "window close";
+  WK = "window kill";
   WN = "window new hide";
-  SV = "say Irssi $J ($V) - http://irssi.org/";
-  GOTO = "sb goto";
-  CHAT = "dcc chat";
+  WA = "window goto active";
   RUN = "SCRIPT LOAD";
-  SBAR = "STATUSBAR";
-  INVITELIST = "mode $C +I";
+  Q = "QUERY";
 };
 
 statusbar = {
-  # formats:
-  # when using {templates}, the template is shown only if its argument isnt
-  # empty unless no argument is given. for example {sb} is printed always,
-  # but {sb $T} is printed only if $T isnt empty.
-
-  items = {
-    # start/end text in statusbars
-    barstart = "{sbstart}";
-    barend = "{sbend}";
-
-    # treated "normally", you could change the time/user name to whatever
-    time = "{sb $Z}";
-    user = "{sb $cumode$N{sbmode $usermode}{sbaway $A}}";
-
-    # treated specially .. window is printed with non-empty windows,
-    # window_empty is printed with empty windows
-    window = "{sb $winref:$T{sbmode $M}}";
-    window_empty = "{sb $winref{sbservertag $tag}}";
-    prompt = "{prompt $[.15]T}";
-    prompt_empty = "{prompt $winname}";
-    topic = " $topic";
-    topic_empty = " Irssi v$J - http://irssi.org/help/";
-
-    # all of these treated specially, theyre only displayed when needed
-    lag = "{sb Lag: $0-}";
-    act = "{sb Act: $0-}";
-    more = "-- more --";
-  };
-
-  # theres two type of statusbars. root statusbars are either at the top
-  # of the screen or at the bottom of the screen. window statusbars are at
-  # the top/bottom of each split window in screen.
   default = {
-    # the "default statusbar" to be displayed at the bottom of the window.
-    # contains all the normal items.
     window = {
-      disabled = "no";
+
+      # disable the default bar containing window list
+      disabled = "yes";
 
       # window, root
       type = "window";
       # top, bottom
       placement = "bottom";
       # number
-      position = "1";
+      position = "0";
       # active, inactive, always
       visible = "active";
 
@@ -119,29 +85,13 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
+        active = { };
+        act = { };
       };
     };
 
-    # statusbar to use in inactive split windows
-    window_inact = {
-      type = "window";
-      placement = "bottom";
-      position = "1";
-      visible = "inactive";
-      items = {
-        barstart = { priority = "100"; };
-        window = { };
-        window_empty = { };
-        more = { priority = "-1"; alignment = "right"; };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-
-    # we treat input line as yet another statusbar :) Its possible to
-    # add other items before or after the input line item.
     prompt = {
       type = "root";
       placement = "bottom";
@@ -149,60 +99,32 @@ statusbar = {
       position = "100";
       visible = "always";
       items = {
+        barstart = { priority = "100"; };
+        time = { };
+
+        user = { };
+        # added my current nick here b/c it was the only useful
+        # item in the disabled bar
+
         prompt = { priority = "-1"; };
         prompt_empty = { priority = "-1"; };
         # treated specially, this is the real input line.
         input = { priority = "10"; };
       };
-    };
 
-    # topicbar
-    topic = {
-      type = "root";
-      placement = "top";
-      position = "1";
-      visible = "always";
-      items = {
-        barstart = { priority = "100"; };
-        topic = { };
-        topic_empty = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
     };
   };
 };
+
 settings = {
   core = {
     real_name = "Marcos Vanetta";
     user_name = "malev";
     nick = "malev";
+    quit_message = "Hasta la vista!";
   };
-  "fe-common/core" = {
-    autolog = "yes";
-    autolog_path = "~/irclogs/$tag/$0-%m%y.log";
-    show_nickmode_empty = "yes";
-    theme = "revolutionary";
-  };
-  "fe-text" = {
-    colors = "yes";
-    autostick_split_windows = "yes";
-    actlist_sort = "refnum";
-  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "irc/core" = { alternate_nick = "malev_"; };
+  "fe-common/core" = { theme = "envy"; };
+  "perl/core/scripts" = { nicklist_automode = "screen"; };
 };
-logs = { };
-ignores = ( );
-keyboard = (
-  { key = "meta-1"; id = "change_window"; data = "1"; },
-  { key = "meta-2"; id = "change_window"; data = "2"; },
-  { key = "meta-3"; id = "change_window"; data = "3"; },
-  { key = "meta-4"; id = "change_window"; data = "4"; },
-  { key = "meta-5"; id = "change_window"; data = "5"; },
-  { key = "meta-6"; id = "change_window"; data = "6"; },
-  { key = "meta-7"; id = "change_window"; data = "7"; },
-  { key = "meta-8"; id = "change_window"; data = "8"; },
-  { key = "meta-9"; id = "change_window"; data = "9"; },
-  { key = "meta-0"; id = "change_window"; data = "10"; }
-);
-
-windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
-mainwindows = { 1 = { first_line = "1"; lines = "52"; }; };
