@@ -129,3 +129,8 @@ settings = {
   "fe-common/core" = { theme = "envy"; };
   "perl/core/scripts" = { nicklist_automode = "screen"; };
 };
+
+ignores = (
+    { level = "JOINS PARTS QUITS"; network = "freenode"; },
+    { level = "JOINS PARTS QUITS"; network = "mozilla"; }
+);
