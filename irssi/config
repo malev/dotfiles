@@ -36,12 +36,13 @@ chatnets = {
 channels = (
   { name = "#pyar"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#rubysur"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#RubyOnRails"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#ruby-lang"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#RubyOnRails"; chatnet = "freenode"; autojoin = "No"; },
+  { name = "#ruby-lang"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#vim"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#elasticsearch"; chatnet = "freenode"; autojoin = "No"; },
 
-  { name = "#opennews"; chatnet = "mozilla"; autojoin = "yes"; }
+  { name = "#opennews"; chatnet = "mozilla"; autojoin = "yes"; },
+  { name = "#km-2014"; chatnet = "mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
