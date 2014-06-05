@@ -123,10 +123,17 @@ settings = {
     user_name = "malev";
     nick = "malev";
     quit_message = "Hasta la vista!";
+    log_timestamp = "%H:%M:%S ";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "irc/core" = { alternate_nick = "malev_"; };
-  "fe-common/core" = { theme = "envy"; };
+  "fe-common/core" = {
+    autolog = "yes";
+    term_charset = "ISO-8859-15";
+    activity_hide_level = "= JOINS QUITS";
+    autolog_path = "~/irclogs/$tag/${0}/${0}-%Y-%m-%d";
+    theme = "envy";
+  };
   "perl/core/scripts" = { nicklist_automode = "screen"; };
 };
 
