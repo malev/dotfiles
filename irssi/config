@@ -134,3 +134,5 @@ ignores = (
     { level = "JOINS PARTS QUITS"; network = "freenode"; },
     { level = "JOINS PARTS QUITS"; network = "mozilla"; }
 );
+
+hilights = ( { text = "malev"; nick = "yes"; word = "yes"; } );
