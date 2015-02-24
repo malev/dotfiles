@@ -110,6 +110,7 @@ set ls=2
 "''''''''''''''''''''''''''''
 " use 256 colors when possible
 set background=dark
+syntax on
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
     let &t_Co = 256
     let g:solarized_termcolors=256
