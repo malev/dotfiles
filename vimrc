@@ -101,6 +101,9 @@ set hlsearch
 set nu
 " always show status bar
 set ls=2
+" Fix backspace behavior
+:fixdel
+:set backspace=indent,eol,start
 
 "''''''''''''''''''''''''''''
 " Color theme
