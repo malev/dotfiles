@@ -137,6 +137,10 @@ augroup vimrcEx
 "''''''''''''''''''''''''''''
 " when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3
+" Improve vim's scrolling speed
+set ttyfast
+set ttyscroll=3
+set lazyredraw
 " toggle paste / nonpaste
 set pastetoggle=<F2>
 " toggle Tagbar display
