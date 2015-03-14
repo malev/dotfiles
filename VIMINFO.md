@@ -59,6 +59,25 @@ Special functions
 - `%`  Returns the current file
 - `%%` Returns the current dir
 
+Tabularize
+----------
+
+- `:Tabularize /=` Align assignments
+- `:Tabularize /:` Align colons
+- `:Tabularize /:\zs` when json
+
+```json
+var video = {
+    metadata: {
+        title:      "Aligning assignments"
+        h264Src:    "/media/alignment.mov",
+        oggSrc:     "/media/alignment.ogv"
+        posterSrc:  "/media/alignment.png"
+        duration:   320,
+    }
+}
+```
+
 WIP
 ---
 This is not ready yet.
