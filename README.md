@@ -80,6 +80,19 @@ IRSSI
 Irssi is a terminal based IRC client for UNIX systems. It also supports SILC and ICB protocols via plugins.
 Check [this](http://www.antonfagerberg.com/archive/my-perfect-irssi-setup) for more information.
 
+New VPS
+-------
+
+```
+apt-get update -y
+apt-get install -y git-core tmux vim make
+mkdir ~/code
+cd ~/code
+git clone https://github.com/malev/dotfiles.git
+cd dotfiles
+make install
+```
+
 License
 -------
 The MIT License (MIT)
