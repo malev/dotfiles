@@ -91,6 +91,12 @@ cd ~/code
 git clone https://github.com/malev/dotfiles.git
 cd dotfiles
 make install
+
+cd ~
+wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+bash Miniconda-latest-Linux-x86_64.sh -b
+echo 'export PATH="/root/miniconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 License
