@@ -176,6 +176,10 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 "''''''''''''''''''''''''''''
 " Plugin config
 "''''''''''''''''''''''''''''
+" Syntastic configuration
+let g:syntastic_python_python_exec = '~/miniconda3/bin'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--ignore=E128,E124,E126,E501,W391 --max-line-length=100 --max-complexity=10"
 " Vim markdown - to disable folding.
 let g:vim_markdown_folding_disabled=1
 " autofocus on Tagbar open
@@ -186,7 +190,7 @@ let g:tabman_focus  = 'tf'
 " NERDTree (better file browser) toggle
 map <F3> :NERDTreeToggle<CR>
 " Ignore files on NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\__pycache__$', '\.pill$']
 " Map ,r to ACK
 nmap ,r :Ack
 " automatically close autocompletion window
