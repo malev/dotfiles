@@ -21,6 +21,12 @@ Also you need to install ctags:
 sudo apt-get install exuberant-ctags
 sudo apt-get install ack-grep
 ```
+
+Brew apps
+---------
+
+`brew bundle`
+
 tmux
 ----
 
