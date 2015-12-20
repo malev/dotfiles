@@ -3,8 +3,20 @@ dotfiles
 
 Every programmer proud of it self has it's own personal dotfiles. Now I'm one of them.
 
-Installation
-------------
+Re install all
+--------------
+
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+git clone https://github.com/malev/dotfiles.git
+cd dotfiles
+brew tap Homebrew/brewdler
+brew bundle
+ln -s $HOME/code/dotfiles/vimrc $HOME/.vimrc
+ln -s $HOME/code/dotfiles/tmux.conf $HOME/.tmux.conf
+ln -s $HOME/code/dotfiles/gitconfig $HOME/.gitconfig
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 Clone this project, change your email con `gitconfig` and create the following symlinks:
 
@@ -21,11 +33,6 @@ Also you need to install ctags:
 sudo apt-get install exuberant-ctags
 sudo apt-get install ack-grep
 ```
-
-Brew apps
----------
-
-`brew bundle`
 
 tmux
 ----
@@ -116,4 +123,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
