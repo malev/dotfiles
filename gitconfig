@@ -2,6 +2,7 @@
   quotepath = false
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = vim
+  excludesfile = ~/.gitignore
 [color]
   ui = true
 [color "branch"]
