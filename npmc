@@ -1,0 +1,15 @@
+#! /usr/bin/env python
+import json
+import sys
+
+green = '\033[92m'
+endc = '\033[0m'
+
+try:
+    with open('package.json') as jfile:
+        data = json.load(jfile)
+        for cmd, desc in data.get('scripts', {}).items():
+            print(green + cmd + endc + ', ' + desc)
+except:
+    print('package.json not found.')
+    sys.exit(1)
