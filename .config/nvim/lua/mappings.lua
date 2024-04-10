@@ -8,7 +8,7 @@ map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>c", "<cmd>e #<cr>", { desc = "Switch to Last Buffer" })
-map("n", "<leader>x", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 
 -- flash
 wk.register({
