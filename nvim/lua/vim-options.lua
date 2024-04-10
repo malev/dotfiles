@@ -19,8 +19,6 @@ vim.lsp.set_log_level('debug')
 vim.g.background = "light"
 vim.wo.number = true
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
-
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.swapfile = false
 

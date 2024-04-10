@@ -6,7 +6,7 @@ return {
         opts = function()
             return {
                 defaults = {
-                    file_ignore_patterns = { ".git/" },
+                    file_ignore_patterns = { ".git/", "node_modules" },
                 },
                 extensions = {
                     file_browser = {
@@ -21,16 +21,6 @@ return {
         config = function(_, opts)
             local telescope = require("telescope")
             telescope.setup(opts)
-
-            local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-            vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {})
-            vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
-            vim.keymap.set("n", "<leader>tt", ":Telescope<CR>", {})
-
             require("telescope").load_extension "file_browser"
         end,
     },

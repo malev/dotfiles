@@ -16,6 +16,7 @@ NVim
 ----
 
 Dependencies: `ripgrep`, `fd`
+Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
 
 git
 ---
