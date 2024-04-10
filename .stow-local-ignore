@@ -4,6 +4,7 @@
 
 Bewfile
 Makefile
+npmc
 
 ^/README.*
 ^/LICENSE.*
