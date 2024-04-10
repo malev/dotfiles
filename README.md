@@ -1,32 +1,20 @@
-dotfiles
-========
+# dotfiles
 
 Every programmer proud of it self has it's own personal dotfiles. Now I'm one of them.
 
-tmux
-----
-
-- Ctrl - A as prefix (as Screen)
-- Map vim hjkl keys (moving as in vim)
-- Status bar
-- 256 Terminal
-- Mouse support
-
-NVim
-----
+## NVim
 
 Dependencies: `ripgrep`, `fd`
 Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
 
-git
----
+## git
 
 - Cool diff colored
 - Whitespaces revealer
 - Alias for checkout (co), branch (br) and log (l)
 
-License
--------
+## License
+
 The MIT License (MIT)
 
 Copyright (c) 2013 Marcos Vanetta
