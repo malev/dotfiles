@@ -24,6 +24,4 @@
   l = log -n 20 --pretty=format:\"%h %ad %an %s\" --date=short
   co = checkout
   br = branch
-[user]
-  name = malev
-  email = mail@example.com
+
