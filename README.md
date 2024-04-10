@@ -13,9 +13,12 @@ Every programmer proud of it self has it's own personal dotfiles. Now I'm one of
 Dependencies: `ripgrep`, `fd`
 Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
 
-# WezTerm
+# Terminal and WezTerm
 
-Installation: `ln -s ~/code/dotfiles/wezterm.lua ~/.wezterm.lua`
+- [Oh My ZSH](https://ohmyz.sh/)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- .zshrc: `ln -s ~/code/dotfiles/zshrc ~/.zshrc`
+- WezTerm config: `ln -s ~/code/dotfiles/wezterm.lua ~/.wezterm.lua`
 
 ## License
 
