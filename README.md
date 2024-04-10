@@ -3,37 +3,6 @@ dotfiles
 
 Every programmer proud of it self has it's own personal dotfiles. Now I'm one of them.
 
-Re install all
---------------
-
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-git clone https://github.com/malev/dotfiles.git
-cd dotfiles
-brew tap Homebrew/brewdler
-brew bundle
-ln -s $HOME/code/dotfiles/vimrc $HOME/.vimrc
-ln -s $HOME/code/dotfiles/tmux.conf $HOME/.tmux.conf
-ln -s $HOME/code/dotfiles/gitconfig $HOME/.gitconfig
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-Clone this project, change your email con `gitconfig` and create the following symlinks:
-
-```
-ln -s ../vimrc ~/.vimrc
-ln -s ../tmux.conf ~/.tmux.conf
-ln -s ../gitconfig ~/.gitconfig
-ln -s ../Xomdmap ~/.Xmodmap
-```
-
-Also you need to install ctags:
-
-```
-sudo apt-get install exuberant-ctags
-sudo apt-get install ack-grep
-```
-
 tmux
 ----
 
@@ -43,74 +12,17 @@ tmux
 - 256 Terminal
 - Mouse support
 
+NVim
+----
+
+Dependencies: `ripgrep`, `fd`
+
 git
 ---
 
 - Cool diff colored
 - Whitespaces revealer
 - Alias for checkout (co), branch (br) and log (l)
-
-Vim
----
-
-Vimrc is a fork from [@fisadev](https://twitter.com/fisadev)'s coolest project: [fisa-vim](https://github.com/fisadev/fisa-vim-config). With minor changes, python agnostic and more Ruby and Rails friendly.
-I have remapped CapsLock to Esc. That will prevent many head aches on vim usage.
-
-Vim's shortcuts
----------------
-
-You can find them [here](https://github.com/malev/dotfiles/blob/master/VIMINFO.md).
-
-Vim's plugins
--------------
-
-- [Vundle](https://github.com/gmarik/vundle)
-- [NerdTree](https://github.com/scrooloose/nerdtree)
-- [Comments](https://github.com/vim-scripts/comments.vim)
-- [TagBar](http://majutsushi.github.io/tagbar/)
-- [ControlP](https://github.com/kien/ctrlp.vim)
-- [VimPowerLine](https://github.com/Lokaltog/vim-powerline)
-- [Surround](https://github.com/tpope/vim-surround)
-- [Autoclose](https://github.com/Townk/vim-autoclose)
-- [Vim-indent-objects](https://github.com/michaeljsmith/vim-indent-object)
-- [AutoComplPop](http://www.vim.org/scripts/script.php?script_id=1879)
-- [IndexedSearch](http://www.vim.org/scripts/script.php?script_id=1682)
-- [YankRing](http://www.vim.org/scripts/script.php?script_id=1234)
-- [CoffeeScript](https://github.com/kchmck/vim-coffee-script)
-- [Syntastic](https://github.com/scrooloose/syntastic)
-- [VimRails](https://github.com/tpope/vim-rails)
-- [VimHAML](https://github.com/tpope/vim-haml)
-- [Fugitive](https://github.com/tpope/vim-fugitive)
-- [Solarized](http://ethanschoonover.com/solarized/vim-colors-solarized)
-- [VimMarkdown](https://github.com/plasticboy/vim-markdown)
-- [Vim-Javascript](https://github.com/pangloss/vim-javascript)
-- [ACKVim](https://github.com/mileszs/ack.vim)
-- [Eunuch](https://github.com/tpope/vim-eunuch)
-- [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
-
-IRSSI
------
-Irssi is a terminal based IRC client for UNIX systems. It also supports SILC and ICB protocols via plugins.
-Check [this](http://www.antonfagerberg.com/archive/my-perfect-irssi-setup) for more information.
-
-New VPS
--------
-
-```
-apt-get update -y
-apt-get install -y git-core tmux vim make
-mkdir ~/code
-cd ~/code
-git clone https://github.com/malev/dotfiles.git
-cd dotfiles
-make install
-
-cd ~
-wget https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-bash Miniconda-latest-Linux-x86_64.sh -b
-echo 'export PATH="/root/miniconda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"' >> ~/.bashrc
-source ~/.bashrc
-```
 
 License
 -------
