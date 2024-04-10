@@ -2,16 +2,20 @@
 
 Every programmer proud of it self has it's own personal dotfiles. Now I'm one of them.
 
-## NVim
-
-Dependencies: `ripgrep`, `fd`
-Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
-
 ## git
 
 - Cool diff colored
 - Whitespaces revealer
 - Alias for checkout (co), branch (br) and log (l)
+
+## NVim
+
+Dependencies: `ripgrep`, `fd`
+Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
+
+# WezTerm
+
+Installation: `ln -s ~/code/dotfiles/wezterm.lua ~/.wezterm.lua`
 
 ## License
 
