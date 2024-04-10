@@ -1,0 +1,10 @@
+.git
+.gitmodules
+.gitignore
+
+Bewfile
+Makefile
+
+^/README.*
+^/LICENSE.*
+

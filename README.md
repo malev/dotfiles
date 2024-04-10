@@ -2,23 +2,37 @@
 
 Every programmer proud of it self has it's own personal dotfiles. Now I'm one of them.
 
-## git
+## Dependencies
+
+- [Oh My ZSH](https://ohmyz.sh/)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- NVim: `ripgrep`, `fd`
+- [WezTerm](https://wezfurlong.org/wezterm/index.html)
+
+## Installation
+
+* `git clone https://github.com/malev/dotfiles.git ~/dotfiles`
+* `cd ~/dotfiles`
+* `stow --adopt -nv .` <- Check everything looks good
+* `stow --adopt .`
+
+## What are we getting?
+
+### Terminal and WezTerm
+
+- WezTerm looking cool
+- Oh My Zsh
+- PowerLevel10k <- Awesome prompt
+
+### Git
 
 - Cool diff colored
 - Whitespaces revealer
 - Alias for checkout (co), branch (br) and log (l)
 
-## NVim
+### NVim
 
-Dependencies: `ripgrep`, `fd`
-Installation: `ln -s ~/code/dotfiles/nvim ~/.config/nvim`
-
-# Terminal and WezTerm
-
-- [Oh My ZSH](https://ohmyz.sh/)
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-- .zshrc: `ln -s ~/code/dotfiles/zshrc ~/.zshrc`
-- WezTerm config: `ln -s ~/code/dotfiles/wezterm.lua ~/.wezterm.lua`
+Great set of plugins. More info tk
 
 ## License
 
