@@ -5,4 +5,3 @@ return {
         require("nvim-autopairs").setup {}
     end,
 }
-

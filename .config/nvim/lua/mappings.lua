@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 wk.register({
     b = {
         name = "NvimTree",
-        b = { "<cmd>NvimTreeToggle<cr>", "Toggle"},
+        b = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
         n = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
         z = "g? to get help"
     }

@@ -4,11 +4,11 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 vim.g.mapleader = " "
-vim.cmd("set nocompatible")          -- disable compatibility to old-time vi
-vim.cmd("set showmatch")             -- show matching brackets.
-vim.cmd("set ignorecase")            -- case insensitive matching
-vim.cmd("set mouse=v")               -- middle-click paste with mouse
-vim.cmd("set hlsearch")              -- highlight search results
+vim.cmd("set nocompatible") -- disable compatibility to old-time vi
+vim.cmd("set showmatch")    -- show matching brackets.
+vim.cmd("set ignorecase")   -- case insensitive matching
+vim.cmd("set mouse=v")      -- middle-click paste with mouse
+vim.cmd("set hlsearch")     -- highlight search results
 -- vim.cmd("set autoindent")            -- indent a new line the same amount as the line just typed
 -- vim.cmd("set number")                -- add line numbers
 vim.cmd("set wildmode=longest,list") -- get bash-like tab completions
@@ -19,17 +19,16 @@ vim.lsp.set_log_level('debug')
 vim.g.background = "light"
 vim.wo.number = true
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.swapfile = false
 
 -- Show Hover and Signature Help windows with borders
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
-
