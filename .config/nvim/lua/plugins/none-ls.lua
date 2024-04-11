@@ -8,9 +8,11 @@ return {
 
 		null_ls.setup({
 			sources = {
-                require("none-ls.code_actions.eslint"),
+				require("none-ls.code_actions.eslint"),
+				null_ls.builtins.code_actions.gomodifytags,
+				null_ls.builtins.code_actions.impl,
 
-                null_ls.builtins.diagnostics.golangci_lint,
+				null_ls.builtins.diagnostics.golangci_lint,
 
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.gofmt,

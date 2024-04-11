@@ -54,10 +54,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "<leader>f", function()
             vim.lsp.buf.format({ async = true })
         end, opts)
-        -- vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
         -- bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
         -- bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
     end,
@@ -75,6 +75,22 @@ wk.register({
     prefix = "<leader>",
     mode = "n",
 })
+
+-- Trouble
+wk.register({
+    x = {
+        name = "Trouble",
+        x = { function() require("trouble").toggle() end, "Toggle" },
+        w = { function() require("trouble").toggle("workspace_diagnostics") end, "Workspace Diagnostics" },
+        d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
+        q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
+        l = { function() require("trouble").toggle("loclist") end, "Loclist" },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
 
 -- Windows
 map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Split" })

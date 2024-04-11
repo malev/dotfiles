@@ -11,6 +11,9 @@ return {
 				"json",
 				"lua",
 				"go",
+				"gomod",
+				"gowork",
+				"gosum",
 				"markdown",
 				"markdown_inline",
 				"python",
@@ -19,7 +22,7 @@ return {
 				"toml",
 				"tsx",
 				"typescript",
-                "yaml"
+				"yaml"
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
