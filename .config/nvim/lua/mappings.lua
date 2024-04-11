@@ -75,3 +75,8 @@ wk.register({
     prefix = "<leader>",
     mode = "n",
 })
+
+-- Windows
+map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Split" })
+map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
+map('n', '<C-w>m', ':MaximizerToggle!<CR>', { noremap = true, silent = true, desc = 'Maximize' })
