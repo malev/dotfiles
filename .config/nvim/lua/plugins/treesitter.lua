@@ -1,31 +1,39 @@
+local ensure_installed = {
+	"bash",
+	"html",
+	"javascript",
+	"json",
+	"lua",
+	"go",
+	"gomod",
+	"gowork",
+	"gosum",
+	"markdown",
+	"markdown_inline",
+	"python",
+	"query",
+	"regex",
+	"toml",
+	"tsx",
+	"typescript",
+	"yaml",
+	"tsx",
+}
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	config = function()
-		local config = require("nvim-treesitter.configs")
-		config.setup({
-			ensure_installed = {
-				"bash",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"go",
-				"gomod",
-				"gowork",
-				"gosum",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"query",
-				"regex",
-				"toml",
-				"tsx",
-				"typescript",
-				"yaml"
-			},
-			highlight = { enable = true },
-			indent = { enable = true },
-		})
+	opts = {
+		ensure_installed = ensure_installed,
+		highlight = {
+			enable = true,
+			use_languagetree = true,
+		},
+		indent = {
+			enable = true
+		},
+	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
