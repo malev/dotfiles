@@ -38,31 +38,6 @@ wk.register({
     mode = "n"
 })
 
--- LSP
-vim.api.nvim_create_autocmd("LspAttach", {
-    desc = 'LSP actions',
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-    callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', 'gw', vim.lsp.buf.document_symbol, opts)
-        vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format({ async = true })
-        end, opts)
-        -- bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-        -- bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-    end,
-})
-
 -- nvim-tree
 wk.register({
     b = {
