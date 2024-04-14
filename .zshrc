@@ -114,7 +114,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Homebrew
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/marcosvanetta/.zprofile
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # PyEnv
@@ -141,3 +141,8 @@ export CLOUDFLARE_API_TOKEN=Mqxq15sEtE4lTZztWgWE6ohxQP7R49yhoPBVHc_W
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export VAULT_ADDR="https://vault-prd.dv.nyt.net"
+alias vtoken="export VAULT_TOKEN=$(cat ~/.vault-token)"
+alias vlogin="vault login -method=oidc -path=azuread-oidc"
+
