@@ -7,6 +7,8 @@ Every programmer proud of it self has it's own personal dotfiles. Now I'm one of
 - [Oh My ZSH](https://ohmyz.sh/)
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - NVim: `ripgrep`, `fd`
+- [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+  - Install plugins with `prefix + I`
 - [WezTerm](https://wezfurlong.org/wezterm/index.html)
 
 ## Installation
