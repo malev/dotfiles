@@ -1,7 +1,19 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp",
+		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -13,6 +25,11 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+		},
 		event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
@@ -49,9 +66,11 @@ return {
 					end,
 				},
 				sources = cmp.config.sources({
+					{ name = "copilot",  group_index = 3 },
 					{ name = "buffer",   keyword_length = 3 },
 					{ name = "luasnip",  keyword_length = 2 },
 					{ name = "nvim_lsp", keyword_length = 1 },
+					{ name = "papita" },
 					{ name = "path" },
 				}, {
 					{ name = "buffer" },
