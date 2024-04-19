@@ -141,10 +141,13 @@ export PATH="$PATH:$GOPATH/bin"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export VAULT_ADDR="https://vault-prd.dv.nyt.net"
-alias vtoken="export VAULT_TOKEN=$(cat ~/.vault-token)"
+# alias vtoken="export VAULT_TOKEN=$(cat ~/.vault-token)"
 alias vlogin="vault login -method=oidc -path=azuread-oidc"
 
 # Java
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

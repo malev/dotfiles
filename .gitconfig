@@ -1,27 +1,7 @@
-[core]
-  quotepath = false
-  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  editor = vim
-  excludesfile = ~/.gitignore
-[color]
-  ui = true
-[color "branch"]
-  current = yellow black
-  local = yellow
-  remote = magenta
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red reverse
-  new = green reverse
-  whitespace = white reverse
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan reverse
-  branch = magenta
-[alias]
-  l = log -n 20 --pretty=format:\"%h %ad %an %s\" --date=short
-  co = checkout
-  br = branch
-
+# This is Git's per-user configuration file.
+[user]
+	name = Marcos Vanetta
+	email = marcosvanetta@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Marcos Vanetta
+#	email = marcosvanetta@gmail.com
