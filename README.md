@@ -13,10 +13,10 @@ Every programmer proud of it self has it's own personal dotfiles. Now I'm one of
 
 ## Installation
 
-* `git clone https://github.com/malev/dotfiles.git ~/dotfiles`
-* `cd ~/dotfiles`
-* `stow --adopt -nv .` <- Check everything looks good
-* `stow --adopt .`
+- `git clone https://github.com/malev/dotfiles.git ~/dotfiles`
+- `cd ~/dotfiles`
+- `stow --adopt -nv .` <- Check everything looks good
+- `stow --adopt .`
 
 ## What are we getting?
 
@@ -35,6 +35,18 @@ Every programmer proud of it self has it's own personal dotfiles. Now I'm one of
 ### NVim
 
 Great set of plugins. More info tk
+
+#### Go
+
+- `go install github.com/incu6us/goimports-reviser/v3@latest`
+- `go install github.com/fatih/gomodifytags@latest`
+
+### Java
+
+- Install SDKMan: `curl -s "https://get.sdkman.io" | bash`
+- Install JEnv: `brew install jenv`
+
+Follow the [instructions](https://medium.com/@brunoborges/manage-multiple-jdks-on-mac-os-linux-and-windows-wsl2-3a73467b685c)
 
 ## License
 
