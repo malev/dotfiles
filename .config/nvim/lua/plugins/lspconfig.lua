@@ -20,8 +20,10 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
+    bashls = {},
     cssls = {},
     eslint = {},
+    golangci_lint_ls = {},
     gopls = {
         settings = {
             gopls = {
@@ -43,7 +45,6 @@ local servers = {
 }
 return {
     "neovim/nvim-lspconfig",
-    event = "VeryLazy",
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -60,6 +61,7 @@ return {
             silent = true,
         })
 
+        vim.lsp.set_log_level 'WARN'
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
