@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 local config = {}
 
 config.color_scheme = 'Catppuccin Mocha'
@@ -17,6 +18,15 @@ config.mouse_bindings = {
         event = { Up = { streak = 1, button = 'Left' } },
         mods = 'CTRL',
         action = wezterm.action.OpenLinkAtMouseCursor,
+    },
+}
+
+config.keys = {
+    -- Clears the scrollback and viewport leaving the prompt line the new first line.
+    {
+        key = 'K',
+        mods = 'CTRL',
+        action = act.ClearScrollback 'ScrollbackAndViewport',
     },
 }
 
