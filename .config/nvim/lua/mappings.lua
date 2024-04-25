@@ -8,7 +8,7 @@ map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>c", "<cmd>e #<cr>", { desc = "Switch to Last Buffer" })
-map("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>z", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 
 -- flash
 wk.register({
@@ -20,6 +20,38 @@ wk.register({
         r = { function() require("flash").treesitter_search() end, "Flash Treesitter Search" },
     },
 }, { prefix = "<leader>" })
+
+-- nvim-tree
+wk.register({
+    b = {
+        name = "NvimTree",
+        b = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+        n = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
+        z = "g? to get help"
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
+
+-- paste without changing current register
+map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
+
+-- Trouble
+wk.register({
+    x = {
+        name = "Trouble",
+        x = { function() require("trouble").toggle() end, "Toggle" },
+        w = { function() require("trouble").toggle("workspace_diagnostics") end, "Workspace Diagnostics" },
+        d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
+        q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
+        l = { function() require("trouble").toggle("loclist") end, "Loclist" },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
 
 -- telescope keymappings
 local builtin = require("telescope.builtin")
@@ -38,36 +70,17 @@ wk.register({
     mode = "n"
 })
 
--- nvim-tree
-wk.register({
-    b = {
-        name = "NvimTree",
-        b = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
-        n = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
-        z = "g? to get help"
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
-})
-
--- Trouble
-wk.register({
-    x = {
-        name = "Trouble",
-        x = { function() require("trouble").toggle() end, "Toggle" },
-        w = { function() require("trouble").toggle("workspace_diagnostics") end, "Workspace Diagnostics" },
-        d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
-        q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
-        l = { function() require("trouble").toggle("loclist") end, "Loclist" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
-})
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
-
 -- Windows
-map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Split" })
-map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
-map('n', '<C-w>m', ':MaximizerToggle!<CR>', { noremap = true, silent = true, desc = 'Maximize' })
+map("n", "<leader>h", "<C-w>h", { desc = "Move to left window" })
+map("n", "<leader>l", "<C-w>l", { desc = "Move to rigth window" })
+map("n", "<leader>j", "<C-w>j", { desc = "Move to bottom window" })
+map("n", "<leader>k", "<C-w>k", { desc = "Move to top window" })
+map("n", "<leader>wh", "<C-w>H", { desc = "Move buffer to left window" })
+map("n", "<leader>wl", "<C-w>L", { desc = "Move buffer to rigth window" })
+map("n", "<leader>ww", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
+map('n', '<leader>wm', ':MaximizerToggle!<CR>', { noremap = true, silent = true, desc = 'Maximize' })
+
+-- yank to system clipboard
+map("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+map("n", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
+map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })

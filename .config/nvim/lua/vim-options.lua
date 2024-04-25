@@ -17,6 +17,7 @@ vim.cmd("filetype plugin indent on") -- allows auto-indenting depending on file 
 
 vim.lsp.set_log_level('debug')
 vim.g.background = "light"
+vim.g.have_nerd_font = true
 vim.wo.number = true
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
