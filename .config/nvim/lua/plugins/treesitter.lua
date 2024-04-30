@@ -13,6 +13,7 @@ local ensure_installed = {
 	"python",
 	"query",
 	"regex",
+	"terraform",
 	"toml",
 	"tsx",
 	"typescript",
