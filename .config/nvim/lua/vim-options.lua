@@ -1,9 +1,12 @@
+-- Set leader key to space
+vim.g.mapleader = " "
+
+-- Set tab options
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
-vim.g.mapleader = " "
 vim.cmd("set nocompatible") -- disable compatibility to old-time vi
 vim.cmd("set showmatch")    -- show matching brackets.
 vim.cmd("set ignorecase")   -- case insensitive matching

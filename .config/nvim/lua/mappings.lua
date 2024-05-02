@@ -1,14 +1,49 @@
 local map = vim.keymap.set
 local wk = require("which-key")
+local builtin = require("telescope.builtin")
 
--- Undo tree
-map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
+-- General keymaps
+map("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
+map("i", "ii", "<ESC>", { desc = "exit insert mode with ii" })
+map("n", "<leader>wq", ":wq<CR>") -- save and quit
+map("n", "<leader>qq", ":q!<CR>") -- quit without saving
+map("n", "<leader>ww", ":w<CR>")  -- save
+
+-- Split window management
+wk.register({
+    w = {
+        name = "Window",
+        h = { "<C-w>h", "Move to left window" },
+        l = { "<C-w>l", "Move to rigth window" },
+        j = { "<C-w>j", "Move to bottom window" },
+        k = { "<C-w>k", "Move to top window" },
+        v = { "<C-w>v", "Split window vertically" },
+        s = { "<C-w>s", "Split window horizontally" },
+        H = { "<C-w>H", "Move buffer to left window" },
+        L = { "<C-w>L", "Move buffer to rigth window" },
+        m = { ":MaximizerToggle!<CR>", { noremap = true, desc = 'Maximize' } },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
 
 -- Buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>c", "<cmd>e #<cr>", { desc = "Switch to Last Buffer" })
 map("n", "<leader>z", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+
+-- Undo tree
+map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
+
+-- yank to system clipboard
+map("n", "<leader>y", '"*y', { desc = "Yank to clipboard" })
+map("n", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
+map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
+
+-- paste without changing current register
+map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
 
 -- flash
 wk.register({
@@ -21,27 +56,60 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
+-- LSP
+wk.register({
+    l = {
+        name = "LSP",
+        a = { vim.lsp.buf.code_action, "Code Action" },
+        d = { builtin.lsp_definitions, "Definition" },
+        r = { builtin.lsp_references, "References" },
+        R = { vim.lsp.buf.rename, "Rename" },
+        h = { vim.lsp.buf.hover, "Hover" },
+        i = { builtin.lsp_implementations, "Implementation" },
+        t = { builtin.lsp_type_definition, "Type Definition" },
+        f = { vim.lsp.buf.formatting, "Format" },
+        l = { vim.diagnostic.open_float, "Diagnostics" },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
+map("n", "K", "vim.lsp.buf.hover", { desc = "Hover" })
+
 -- nvim-tree
 wk.register({
-    b = {
+    e = {
         name = "NvimTree",
-        b = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
-        n = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
-        z = "g? to get help"
+        e = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+        f = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
+        h = { function() require("nvim-tree.api").tree.toggle_help() end, "Toggle" },
     }
 }, {
     prefix = "<leader>",
     mode = "n",
 })
 
--- paste without changing current register
-map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
+-- Telescope keymappings
+wk.register({
+    f = {
+        name = "Find / Telescope",
+        f = { require('telescope.builtin').find_files, "Find File" },
+        g = { require('telescope.builtin').live_grep, "Grep All" },
+        b = { require('telescope.builtin').buffers, "Grep Buffers" },
+        h = { require('telescope.builtin').help_tags, "Help" },
+        s = { require('telescope.builtin').current_buffer_fuzzy_find, "Fuzzy Finder in current buffer" },
+        e = { require("telescope").extensions.file_browser.file_browser, "File Browser" },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n"
+})
 
 -- Trouble
 wk.register({
     x = {
         name = "Trouble",
-        x = { function() require("trouble").toggle() end, "Toggle" },
+        x = { require("trouble").toggle, "Toggle" },
         w = { function() require("trouble").toggle("workspace_diagnostics") end, "Workspace Diagnostics" },
         d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
         q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
@@ -52,35 +120,3 @@ wk.register({
     mode = "n",
 })
 vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
-
--- telescope keymappings
-local builtin = require("telescope.builtin")
-wk.register({
-    f = {
-        name = "Find / Telescope",
-        f = { "<cmd>Telescope find_files<cr>", "Find File" },
-        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-        g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-        h = { "<cmd>Telescope help_tags<cr>", "Help" },
-        e = { ":Telescope file_browser hidden=true<CR>", "File Browser" },
-        n = { "New File" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n"
-})
-
--- Windows
-map("n", "<leader>h", "<C-w>h", { desc = "Move to left window" })
-map("n", "<leader>l", "<C-w>l", { desc = "Move to rigth window" })
-map("n", "<leader>j", "<C-w>j", { desc = "Move to bottom window" })
-map("n", "<leader>k", "<C-w>k", { desc = "Move to top window" })
-map("n", "<leader>wh", "<C-w>H", { desc = "Move buffer to left window" })
-map("n", "<leader>wl", "<C-w>L", { desc = "Move buffer to rigth window" })
-map("n", "<leader>ww", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
-map('n', '<leader>wm', ':MaximizerToggle!<CR>', { noremap = true, silent = true, desc = 'Maximize' })
-
--- yank to system clipboard
-map("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
-map("n", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
-map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
