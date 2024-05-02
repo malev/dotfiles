@@ -29,10 +29,24 @@ wk.register({
 })
 
 -- Buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>c", "<cmd>e #<cr>", { desc = "Switch to Last Buffer" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>z", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
+map("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
+map("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
+map("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
+wk.register({
+    b = {
+        name = "Buffer",
+        l = { "<cmd>e #<cr>", "Switch to last buffer" },
+        o = { "<cmd>BufferLineCloseOthers<cr>", "Delete Other Buffers" },
+        p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
+        r = { "<cmd>e!<cr>", "Reload buffer" },
+    }
+})
 
 -- Undo tree
 map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
@@ -48,7 +62,7 @@ map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
 -- flash
 wk.register({
     -- flash search
-    l = {
+    s = {
         name = "flash",
         s = { function() require("flash").jump() end, "Flash Jump" },
         t = { function() require("flash").treesitter() end, "Flash Treesitter" },
@@ -126,9 +140,9 @@ wk.register({
         d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
         q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
         l = { function() require("trouble").toggle("loclist") end, "Loclist" },
+        r = { function() require("trouble").toggle("lsp_references") end, "References" }, -- not working
     }
 }, {
     prefix = "<leader>",
     mode = "n",
 })
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
