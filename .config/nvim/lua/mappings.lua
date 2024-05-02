@@ -56,6 +56,18 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
+-- GIT
+wk.register({
+    g = {
+        name = "Git",
+        p = { require('gitsigns').preview_hunk, "Preview Hunk" },
+        t = { require('gitsigns').toggle_current_line_blame, "Toggle Blame" },
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n"
+})
+
 -- LSP
 wk.register({
     l = {
