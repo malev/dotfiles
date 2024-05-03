@@ -121,6 +121,7 @@ wk.register({
         name = "Find / Telescope",
         f = { require('telescope.builtin').find_files, "Find File" },
         g = { require('telescope.builtin').live_grep, "Grep All" },
+        G = { require('telescope-live-grep-args.shortcuts').grep_word_under_cursor, "Grep word under cursor" },
         b = { require('telescope.builtin').buffers, "Grep Buffers" },
         h = { require('telescope.builtin').help_tags, "Help" },
         s = { require('telescope.builtin').current_buffer_fuzzy_find, "Fuzzy Finder in current buffer" },

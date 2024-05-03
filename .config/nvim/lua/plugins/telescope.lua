@@ -3,7 +3,10 @@ return {
         "nvim-telescope/telescope.nvim",
         event = "VeryLazy",
         tag = "0.1.6",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" }
+        },
         opts = function()
             return {
                 defaults = {
@@ -23,6 +26,7 @@ return {
             local telescope = require("telescope")
             telescope.setup(opts)
             require("telescope").load_extension "file_browser"
+            require("telescope").load_extension "live_grep_args"
         end,
     },
     {
