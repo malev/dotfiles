@@ -25,7 +25,6 @@ return {
             local telescope = require("telescope")
             telescope.setup(opts)
             require("telescope").load_extension "file_browser"
-            require("telescope").load_extension "live_grep_args"
         end,
     },
     {
