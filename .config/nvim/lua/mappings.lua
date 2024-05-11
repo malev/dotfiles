@@ -46,6 +46,9 @@ wk.register({
         p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
         r = { "<cmd>e!<cr>", "Reload buffer" },
     }
+}, {
+    prefix = "<leader>",
+    mode = "n",
 })
 
 -- Undo tree
