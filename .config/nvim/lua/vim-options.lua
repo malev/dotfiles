@@ -18,7 +18,7 @@ vim.cmd("set wildmode=longest,list") -- get bash-like tab completions
 vim.cmd("set cc=100")                -- set colour columns for good coding style
 vim.cmd("filetype plugin indent on") -- allows auto-indenting depending on file type
 
-vim.lsp.set_log_level('debug')
+vim.lsp.set_log_level('info')
 vim.g.background = "light"
 vim.g.have_nerd_font = true
 vim.wo.number = true
@@ -44,4 +44,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
+})
+
+-- Vim Search Options
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = true  -- unless capital letter in search
+
+vim.opt.hlsearch = false  -- do not highlight all matches on previous search pattern
+vim.opt.incsearch = true  -- incrementally highlight searches as you type
+
+-- Scroll Options
+vim.opt.scrolloff = 8     -- minimum number of lines to keep above and below the cursor
+vim.opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor
+
+-- JS and CSS formatting
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.js", "*.html", "*.css", "*.ts" },
+  callback = function()
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+  end
 })
