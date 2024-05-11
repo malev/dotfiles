@@ -17,6 +17,7 @@ local servers = {
     html = {},
     jsonls = {},
     lua_ls = {},
+    pyright = {},
     tailwindcss = {},
     terraformls = {},
     tsserver = {},
