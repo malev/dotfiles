@@ -31,6 +31,17 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
+        local border = {
+            { '┌', 'FloatBorder' },
+            { '─', 'FloatBorder' },
+            { '┐', 'FloatBorder' },
+            { '│', 'FloatBorder' },
+            { '┘', 'FloatBorder' },
+            { '─', 'FloatBorder' },
+            { '└', 'FloatBorder' },
+            { '│', 'FloatBorder' },
+        }
+
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
             border = "single",
         })
@@ -39,6 +50,11 @@ return {
             focusable = false,
             relative = "cursor",
             silent = true,
+        })
+
+        vim.diagnostic.config({
+            virtual_text = false,
+            float = { border = border, width = 100 },
         })
 
         vim.lsp.set_log_level 'WARN'
