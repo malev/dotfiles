@@ -103,7 +103,7 @@ wk.register({
     prefix = "<leader>",
     mode = "n",
 })
-map("n", "K", "vim.lsp.buf.hover", { desc = "Hover" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- nvim-tree
 wk.register({
