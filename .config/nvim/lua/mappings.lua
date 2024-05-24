@@ -9,6 +9,10 @@ map("n", "<leader>wq", ":wq<CR>") -- save and quit
 map("n", "<leader>qq", ":q!<CR>") -- quit without saving
 map("n", "<leader>ww", ":w<CR>")  -- save
 
+map("n", ":Q", ":q<CR>")          -- quit without saving
+map("n", ":Qa", ":qa<CR>")        -- quit all without saving
+map("n", ":W", ":w<CR>")          -- save
+
 -- Split window management
 wk.register({
     w = {
@@ -116,6 +120,11 @@ wk.register({
 }, {
     prefix = "<leader>",
     mode = "n",
+})
+
+-- Oil
+wk.register({
+    ["<leader>-"] = { "<cmd>Oil<cr>", "Oil" },
 })
 
 -- Telescope keymappings
