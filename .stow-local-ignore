@@ -9,3 +9,4 @@ npmc
 ^/README.*
 ^/LICENSE.*
 
+init/*.sh
