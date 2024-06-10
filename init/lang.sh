@@ -58,6 +58,10 @@ jenv() {
 # Python
 source "$HOME/.rye/env"
 
+# Ruby
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+chruby ruby-3.3.2
+
 # Java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
