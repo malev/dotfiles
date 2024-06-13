@@ -19,6 +19,7 @@ local servers = {
     lua_ls = {},
     pyright = {},
     tailwindcss = {},
+    templ = {},
     terraformls = {},
     tsserver = {},
     yamlls = {},
