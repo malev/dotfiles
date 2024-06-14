@@ -15,8 +15,9 @@ Every programmer proud of it self has it's own personal dotfiles. Now I'm one of
 
 - `git clone https://github.com/malev/dotfiles.git ~/dotfiles`
 - `cd ~/dotfiles`
-- `stow --adopt -nv .` <- Check everything looks good
-- `stow --adopt .`
+- `stow nvim`
+- `stow alacritty`
+- `stow zsh`
 
 ## What are we getting?
 
