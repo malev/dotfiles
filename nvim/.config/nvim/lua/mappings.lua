@@ -59,8 +59,8 @@ wk.register({
 map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
 
 -- yank to system clipboard
-map("n", "<leader>y", '"*y', { desc = "Yank to clipboard" })
-map("n", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
+map("v", "<leader>y", '"*y', { desc = "Yank to clipboard" })
+map("v", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
 map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
 
 -- paste without changing current register
