@@ -3,14 +3,12 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # GoEnv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
 export GOENV_SHELL=zsh
-export GOENV_ROOT=/Users/malev/.goenv
+export GOENV_ROOT="$HOME/.goenv"
 if [ "${PATH#*$GOENV_ROOT/shims}" = "${PATH}" ]; then
   export PATH="$PATH:$GOENV_ROOT/shims"
 fi
-source '/opt/homebrew/Cellar/goenv/2.1.14/libexec/../completions/goenv.zsh'
+source '/opt/homebrew/Cellar/goenv/2.2.0/libexec/../completions/goenv.zsh'
 command goenv rehash 2>/dev/null
 goenv() {
   local command
@@ -27,8 +25,6 @@ goenv() {
   esac
 }
 goenv rehash --only-manage-paths
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
 
 # Java
 export PATH="$HOME/.jenv/bin:$PATH"
