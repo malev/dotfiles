@@ -13,16 +13,7 @@ map("n", ":Q", ":q<CR>")          -- quit without saving
 map("n", ":Qa", ":qa<CR>")        -- quit all without saving
 map("n", ":W", ":w<CR>")          -- save
 
--- Which Key Help
-wk.add({
-    "<leader>?",
-    function()
-        require("which-key").show({ global = false })
-    end,
-    desc = "Buffer Local Keymaps (which-key)",
-})
 -- Split window management
-
 wk.add({
     { "<leader>wh", "<C-w>h",                desc = "Move to left window",         group = "Window" },
     { "<leader>wl", "<C-w>l",                desc = "Move to rigth window",        group = "Window" },
@@ -66,9 +57,9 @@ map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
 
 -- flash
 wk.add({
-    { "<leader>ss", "<cmd>lua require('flash').jump()<cr>",              group = "Flash", desc = "Flash Jump" },
-    { "<leader>st", "<cmd>lua require('flash').treesitter()<cr>",        group = "Flash", desc = "Flash Treesitter" },
-    { "<leader>sr", "<cmd>lua require('flash').treesitter_search()<cr>", group = "Flash", desc = "Flash Treesitter Search" },
+    { "<leader>ss", require('flash').jump,              group = "Flash", desc = "Flash Jump" },
+    { "<leader>st", require('flash').treesitter,        group = "Flash", desc = "Flash Treesitter" },
+    { "<leader>sr", require('flash').treesitter_search, group = "Flash", desc = "Flash Treesitter Search" },
 })
 
 -- GIT
@@ -84,23 +75,23 @@ wk.add({
 
 -- LSP
 wk.add({
-    { "<leader>la", "vim.lsp.buf.code_action",     group = "LSP", desc = "Code Action" },
-    { "<leader>ld", "builtin.lsp_definitions",     group = "LSP", desc = "Definition" },
-    { "<leader>lr", "builtin.lsp_references",      group = "LSP", desc = "References" },
-    { "<leader>lR", "vim.lsp.buf.rename",          group = "LSP", desc = "Rename" },
-    { "<leader>lh", "vim.lsp.buf.hover",           group = "LSP", desc = "Hover" },
-    { "<leader>li", "builtin.lsp_implementations", group = "LSP", desc = "Implementation" },
-    { "<leader>lt", "builtin.lsp_type_definition", group = "LSP", desc = "Type Definition" },
-    { "<leader>lf", "vim.lsp.buf.formatting",      group = "LSP", desc = "Format" },
-    { "<leader>ll", "vim.diagnostic.open_float",   group = "LSP", desc = "Diagnostics" },
+    { "<leader>la", vim.lsp.buf.code_action,     group = "LSP", desc = "Code Action" },
+    { "<leader>ld", builtin.lsp_definitions,     group = "LSP", desc = "Definition" },
+    { "<leader>lr", builtin.lsp_references,      group = "LSP", desc = "References" },
+    { "<leader>lR", vim.lsp.buf.rename,          group = "LSP", desc = "Rename" },
+    { "<leader>lh", vim.lsp.buf.hover,           group = "LSP", desc = "Hover" },
+    { "<leader>li", builtin.lsp_implementations, group = "LSP", desc = "Implementation" },
+    { "<leader>lt", builtin.lsp_type_definition, group = "LSP", desc = "Type Definition" },
+    { "<leader>lf", vim.lsp.buf.formatting,      group = "LSP", desc = "Format" },
+    { "<leader>ll", vim.diagnostic.open_float,   group = "LSP", desc = "Diagnostics" },
 })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- nvim-tree
 wk.add({
-    { "<leader>ne", "<cmd>NvimTreeToggle<cr>",                                   group = "NvimTree", desc = "Toggle" },
-    { "<leader>nf", "<cmd>NvimTreeFindFile<cr>",                                 group = "NvimTree", desc = "Find File" },
-    { "<leader>nh", "<cmd>lua require('nvim-tree.api').tree.toggle_help() <cr>", group = "NvimTree", desc = "Toggle Help" },
+    { "<leader>ee", "<cmd>NvimTreeToggle<cr>",                 group = "NvimTree", desc = "Toggle" },
+    { "<leader>ef", "<cmd>NvimTreeFindFile<cr>",               group = "NvimTree", desc = "Find File" },
+    { "<leader>eh", require('nvim-tree.api').tree.toggle_help, group = "NvimTree", desc = "Toggle Help" },
 })
 
 -- Oil
@@ -122,11 +113,8 @@ wk.add({
 
 -- Trouble
 wk.add({
-    { "<leader>xx", "<cmd>TroubleToggle<cr>",                           group = "Trouble", desc = "Trouble" },
-    { "<leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", group = "Trouble", desc = "Workspace Diagnostics" },
-    { "<leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<cr>",  group = "Trouble", desc = "Document Diagnostics" },
-    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",                  group = "Trouble", desc = "Quickfix" },
-    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",                   group = "Trouble", desc = "Loclist" },
-    { "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>",            group = "Trouble", desc = "References" },
-
+    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              group = "Trouble", desc = "Workspace Diagnostics" },
+    { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", group = "Trouble", desc = "Diagnostics current buffer" },
+    { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>",                 group = "Trouble", desc = "Quickfix" },
+    { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",           group = "Trouble", desc = "References" },
 })
