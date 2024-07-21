@@ -13,23 +13,26 @@ map("n", ":Q", ":q<CR>")          -- quit without saving
 map("n", ":Qa", ":qa<CR>")        -- quit all without saving
 map("n", ":W", ":w<CR>")          -- save
 
+-- Which Key Help
+wk.add({
+    "<leader>?",
+    function()
+        require("which-key").show({ global = false })
+    end,
+    desc = "Buffer Local Keymaps (which-key)",
+})
 -- Split window management
-wk.register({
-    w = {
-        name = "Window",
-        h = { "<C-w>h", "Move to left window" },
-        l = { "<C-w>l", "Move to rigth window" },
-        j = { "<C-w>j", "Move to bottom window" },
-        k = { "<C-w>k", "Move to top window" },
-        v = { "<C-w>v", "Split window vertically" },
-        s = { "<C-w>s", "Split window horizontally" },
-        H = { "<C-w>H", "Move buffer to left window" },
-        L = { "<C-w>L", "Move buffer to rigth window" },
-        m = { ":MaximizerToggle!<CR>", { noremap = true, desc = 'Maximize' } },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+
+wk.add({
+    { "<leader>wh", "<C-w>h",                desc = "Move to left window",         group = "Window" },
+    { "<leader>wl", "<C-w>l",                desc = "Move to rigth window",        group = "Window" },
+    { "<leader>wj", "<C-w>j",                desc = "Move to bottom window",       group = "Window" },
+    { "<leader>wk", "<C-w>k",                desc = "Move to top window",          group = "Window" },
+    { "<leader>wv", "<C-w>v",                desc = "Split window vertically",     group = "Window" },
+    { "<leader>ws", "<C-w>s",                desc = "Split window horizontally",   group = "Window" },
+    { "<leader>wH", "<C-w>H",                desc = "Move buffer to left window",  group = "Window" },
+    { "<leader>wL", "<C-w>L",                desc = "Move buffer to rigth window", group = "Window" },
+    { "<leader>wm", ":MaximizerToggle!<CR>", desc = "Maximize",                    group = "Window" },
 })
 
 -- Buffers
@@ -42,17 +45,12 @@ map("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 
 map("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
 map("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
 map("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
-wk.register({
-    b = {
-        name = "Buffer",
-        l = { "<cmd>e #<cr>", "Switch to last buffer" },
-        o = { "<cmd>BufferLineCloseOthers<cr>", "Delete Other Buffers" },
-        p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
-        r = { "<cmd>e!<cr>", "Reload buffer" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+wk.add({
+    { "<leader>bl", "<cmd>e #<cr>",                   group = "Buffer", desc = "Switch to last buffer" },
+    { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", group = "Buffer", desc = "Delete Other Buffers" },
+    { "<leader>bp", "<cmd>BufferLineTogglePin<cr>",   group = "Buffer", desc = "Toggle Pin" },
+    { "<leader>br", "<cmd>e!<cr>",                    group = "Buffer", desc = "Reload buffer" },
+    {},
 })
 
 -- Undo tree
@@ -67,95 +65,68 @@ map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
 map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
 
 -- flash
-wk.register({
-    -- flash search
-    s = {
-        name = "flash",
-        s = { function() require("flash").jump() end, "Flash Jump" },
-        t = { function() require("flash").treesitter() end, "Flash Treesitter" },
-        r = { function() require("flash").treesitter_search() end, "Flash Treesitter Search" },
-    },
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>ss", "<cmd>lua require('flash').jump()<cr>",              group = "Flash", desc = "Flash Jump" },
+    { "<leader>st", "<cmd>lua require('flash').treesitter()<cr>",        group = "Flash", desc = "Flash Treesitter" },
+    { "<leader>sr", "<cmd>lua require('flash').treesitter_search()<cr>", group = "Flash", desc = "Flash Treesitter Search" },
+})
 
 -- GIT
-wk.register({
-    g = {
-        name = "Git",
-        p = { require('gitsigns').preview_hunk, "Preview Hunk" },
-        t = { require('gitsigns').toggle_current_line_blame, "Toggle Blame" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n"
+wk.add({
+    { "<leader>gs", "<cmd>Git<cr>",       group = "Git", desc = "Git Status" },
+    { "<leader>gd", "<cmd>Git diff<cr>",  group = "Git", desc = "Git Diff" },
+    { "<leader>gl", "<cmd>Git log<cr>",   group = "Git", desc = "Git Log" },
+    { "<leader>gb", "<cmd>Git blame<cr>", group = "Git", desc = "Git Blame" },
+    -- Consider:
+    -- require('gitsigns').preview_hunk
+    -- require('gitsigns').toggle_current_line_blame
 })
 
 -- LSP
-wk.register({
-    l = {
-        name = "LSP",
-        a = { vim.lsp.buf.code_action, "Code Action" },
-        d = { builtin.lsp_definitions, "Definition" },
-        r = { builtin.lsp_references, "References" },
-        R = { vim.lsp.buf.rename, "Rename" },
-        h = { vim.lsp.buf.hover, "Hover" },
-        i = { builtin.lsp_implementations, "Implementation" },
-        t = { builtin.lsp_type_definition, "Type Definition" },
-        f = { vim.lsp.buf.formatting, "Format" },
-        l = { vim.diagnostic.open_float, "Diagnostics" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+wk.add({
+    { "<leader>la", "vim.lsp.buf.code_action",     group = "LSP", desc = "Code Action" },
+    { "<leader>ld", "builtin.lsp_definitions",     group = "LSP", desc = "Definition" },
+    { "<leader>lr", "builtin.lsp_references",      group = "LSP", desc = "References" },
+    { "<leader>lR", "vim.lsp.buf.rename",          group = "LSP", desc = "Rename" },
+    { "<leader>lh", "vim.lsp.buf.hover",           group = "LSP", desc = "Hover" },
+    { "<leader>li", "builtin.lsp_implementations", group = "LSP", desc = "Implementation" },
+    { "<leader>lt", "builtin.lsp_type_definition", group = "LSP", desc = "Type Definition" },
+    { "<leader>lf", "vim.lsp.buf.formatting",      group = "LSP", desc = "Format" },
+    { "<leader>ll", "vim.diagnostic.open_float",   group = "LSP", desc = "Diagnostics" },
 })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- nvim-tree
-wk.register({
-    e = {
-        name = "NvimTree",
-        e = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
-        f = { "<cmd>NvimTreeFindFile<cr>", "Find File" },
-        h = { function() require("nvim-tree.api").tree.toggle_help() end, "Toggle" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+wk.add({
+    { "<leader>ne", "<cmd>NvimTreeToggle<cr>",                                   group = "NvimTree", desc = "Toggle" },
+    { "<leader>nf", "<cmd>NvimTreeFindFile<cr>",                                 group = "NvimTree", desc = "Find File" },
+    { "<leader>nh", "<cmd>lua require('nvim-tree.api').tree.toggle_help() <cr>", group = "NvimTree", desc = "Toggle Help" },
 })
 
 -- Oil
-wk.register({
-    ["<leader>-"] = { "<cmd>Oil<cr>", "Oil" },
-})
+wk.add(
+    { "<leader>-", "<cmd>Oil<cr>", group = "Oil", desc = "Oil" }
+)
 
 -- Telescope keymappings
-wk.register({
-    f = {
-        name = "Find / Telescope",
-        f = { require('telescope.builtin').find_files, "Find File" },
-        g = { require('telescope.builtin').live_grep, "Grep All" },
-        G = { require('telescope.builtin').grep_string, "Grep current word" },
-        b = { require('telescope.builtin').buffers, "Grep Buffers" },
-        h = { require('telescope.builtin').help_tags, "Help" },
-        s = { require('telescope.builtin').current_buffer_fuzzy_find, "Fuzzy Finder in current buffer" },
-        e = { require("telescope").extensions.file_browser.file_browser, "File Browser" },
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n"
+wk.add({
+    { "<leader>ff", builtin.find_files,                                        group = "Telescope", desc = "Find File" },
+    { "<leader>fg", builtin.live_grep,                                         group = "Telescope", desc = "Grep All" },
+    { "<leader>fG", builtin.grep_string,                                       group = "Telescope", desc = "Grep current word" },
+    { "<leader>fb", builtin.buffers,                                           group = "Telescope", desc = "Grep Buffers" },
+    { "<leader>fh", builtin.help_tags,                                         group = "Telescope", desc = "Help" },
+    { "<leader>fs", builtin.current_buffer_fuzzy_find,                         group = "Telescope", desc = "Fuzzy Finder in current buffer" },
+    { "<leader>fe", require("telescope").extensions.file_browser.file_browser, group = "Telescope", desc = "File Browser" },
+
 })
 
 -- Trouble
-wk.register({
-    x = {
-        name = "Trouble",
-        x = { require("trouble").toggle, "Toggle" },
-        w = { function() require("trouble").toggle("workspace_diagnostics") end, "Workspace Diagnostics" },
-        d = { function() require("trouble").toggle("document_diagnostics") end, "Document Diagnostics" },
-        q = { function() require("trouble").toggle("quickfix") end, "Quickfix" },
-        l = { function() require("trouble").toggle("loclist") end, "Loclist" },
-        r = { function() require("trouble").toggle("lsp_references") end, "References" }, -- not working
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+wk.add({
+    { "<leader>xx", "<cmd>TroubleToggle<cr>",                           group = "Trouble", desc = "Trouble" },
+    { "<leader>xw", "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", group = "Trouble", desc = "Workspace Diagnostics" },
+    { "<leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<cr>",  group = "Trouble", desc = "Document Diagnostics" },
+    { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",                  group = "Trouble", desc = "Quickfix" },
+    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",                   group = "Trouble", desc = "Loclist" },
+    { "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>",            group = "Trouble", desc = "References" },
+
 })
