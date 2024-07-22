@@ -66,7 +66,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 # Shell integrations
-[ -e /opt/homebrew ] && source <(fzf --zsh) # Only in Mac for now
+if [ -e /opt/homebrew ];then
+  source <(fzf --zsh)
+else
+  # Ubuntu has an older version of fzf
+  source /usr/share/doc/fzf/examples/fzf.vim
+fi
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # Define a list of strings
