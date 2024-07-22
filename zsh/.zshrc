@@ -65,8 +65,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-# # Shell integrations
-eval "$(fzf --zsh)"
+# Shell integrations
+[ -e /opt/homebrew ] && source <(fzf --zsh) # Only in Mac for now
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # Define a list of strings
