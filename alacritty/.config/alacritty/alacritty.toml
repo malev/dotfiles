@@ -17,3 +17,7 @@ blur = true
 [font]
 normal.family = "JetBrainsMono Nerd Font"
 size = 16
+
+[scrolling]
+history = 10000
+multiplier = 4
