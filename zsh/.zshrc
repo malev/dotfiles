@@ -7,6 +7,7 @@ fi
 
 if [ -e /opt/homebrew ]; then
   source ~/dotfiles/init/brew.sh
+  source ~/dotfiles/init/lang.sh
 fi
 
 # Set the directory we want to store zinit and plugins
@@ -69,7 +70,7 @@ eval "$(fzf --zsh)"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # Define a list of strings
-scripts=("alias.sh" "env.sh" "lang.sh")
+scripts=("alias.sh" "env.sh")
 
 # Iterate over each string in the list
 for script in "${scripts[@]}"; do
