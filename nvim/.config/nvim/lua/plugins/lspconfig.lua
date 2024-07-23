@@ -1,3 +1,5 @@
+local path_check = require("path_check")
+
 local servers = {
     bashls = {},
     cssls = {},
@@ -72,7 +74,13 @@ return {
             }
         })
 
-        local ensure_installed = vim.tbl_keys(servers or {})
+        local ensure_installed
+        if path_check.is_program_in_path("node") then
+            ensure_installed = vim.tbl_keys(servers or {})
+        else
+            ensure_installed = {}
+        end
+
         require("mason-lspconfig").setup {
             ensure_installed = ensure_installed,
             handlers = {
