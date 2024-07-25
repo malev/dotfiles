@@ -8,7 +8,7 @@ export GOENV_ROOT="$HOME/.goenv"
 if [ "${PATH#*$GOENV_ROOT/shims}" = "${PATH}" ]; then
   export PATH="$PATH:$GOENV_ROOT/shims"
 fi
-source '/opt/homebrew/Cellar/goenv/2.2.0/libexec/../completions/goenv.zsh'
+source '/opt/homebrew/Cellar/goenv/2.2.1/libexec/../completions/goenv.zsh'
 command goenv rehash 2>/dev/null
 goenv() {
   local command
