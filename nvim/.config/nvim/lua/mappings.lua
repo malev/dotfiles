@@ -15,45 +15,51 @@ map("n", ":W", ":w<CR>")          -- save
 
 -- Split window management
 wk.add({
-    { "<leader>wh", "<C-w>h",                desc = "Move to left window",         group = "Window" },
-    { "<leader>wl", "<C-w>l",                desc = "Move to rigth window",        group = "Window" },
-    { "<leader>wj", "<C-w>j",                desc = "Move to bottom window",       group = "Window" },
-    { "<leader>wk", "<C-w>k",                desc = "Move to top window",          group = "Window" },
-    { "<leader>wv", "<C-w>v",                desc = "Split window vertically",     group = "Window" },
-    { "<leader>ws", "<C-w>s",                desc = "Split window horizontally",   group = "Window" },
-    { "<leader>wH", "<C-w>H",                desc = "Move buffer to left window",  group = "Window" },
-    { "<leader>wL", "<C-w>L",                desc = "Move buffer to rigth window", group = "Window" },
-    { "<leader>wm", ":MaximizerToggle!<CR>", desc = "Maximize",                    group = "Window" },
+    { "<leader>wh", "<C-w>h",                desc = "Move to left window", },
+    { "<leader>wl", "<C-w>l",                desc = "Move to rigth window", },
+    { "<leader>wj", "<C-w>j",                desc = "Move to bottom window", },
+    { "<leader>wk", "<C-w>k",                desc = "Move to top window", },
+    { "<leader>wv", "<C-w>v",                desc = "Split window vertically", },
+    { "<leader>ws", "<C-w>s",                desc = "Split window horizontally", },
+    { "<leader>wH", "<C-w>H",                desc = "Move buffer to left window", },
+    { "<leader>wL", "<C-w>L",                desc = "Move buffer to rigth window", },
+    { "<leader>wm", ":MaximizerToggle!<CR>", desc = "Maximize", },
 })
 
 -- Buffers
-map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>z", "<cmd>bdelete<cr>", { desc = "Close buffer" })
-map("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
-map("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
-map("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
-map("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
 wk.add({
-    { "<leader>bl", "<cmd>e #<cr>",                   group = "Buffer", desc = "Switch to last buffer" },
-    { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", group = "Buffer", desc = "Delete Other Buffers" },
-    { "<leader>bp", "<cmd>BufferLineTogglePin<cr>",   group = "Buffer", desc = "Toggle Pin" },
-    { "<leader>br", "<cmd>e!<cr>",                    group = "Buffer", desc = "Reload buffer" },
-    {},
+    { "<leader>bl", "<cmd>e #<cr>",                    desc = "Switch to last buffer" },
+    { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>",  desc = "Delete Other Buffers" },
+    { "<leader>bp", "<cmd>BufferLineTogglePin<cr>",    desc = "Toggle Pin" },
+    { "<leader>br", "<cmd>e!<cr>",                     desc = "Reload buffer" },
+    { "<leader>z",  "<cmd>bdelete<cr>",                desc = "Close buffer" },
+
+    { "<S-h>",      "<cmd>BufferLineCyclePrev<cr>",    desc = "Prev Bufer" },
+    { "<S-l>",      "<cmd>BufferLineCycleNext<cr>",    desc = "Prev Bufer" },
+    { "<C-[>",      "<cmd>BufferLineCyclePrev<cr>",    desc = "Prev Bufer" },
+    { "<C-]>",      "<cmd>BufferLineCycleNext<cr>",    desc = "Prev Bufer" },
+
+    { "<leader>1",  "<Cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+    { "<leader>2",  "<Cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+    { "<leader>3",  "<Cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+    { "<leader>4",  "<Cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
 })
 
 -- Undo tree
-map("n", "<leader>cu", "<cmd>UndotreeToggle<CR>", { desc = "Open undotree" })
+wk.add(
+    { "<leader>cu", "<cmd>UndotreeToggle<CR>", desc = "Open undotree" }
+)
 
 -- yank to system clipboard
-map("v", "<leader>y", '"*y', { desc = "Yank to clipboard" })
-map("v", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
-map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
-
--- paste without changing current register
-map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
+wk.add({
+    mode = { "v" },
+    { "<leader>y", '"*y', desc = "Yank to clipboard" },
+    { "<leader>Y", '"+Y', desc = "Yank line to clipboard" },
+}, {
+    mode = { "n" },
+    { "<leader>yy", '"+yy', desc = "Yank line to clipboard" },
+    { "<leader>p",  '"*p',  desc = "Paste from clipboard" }
+})
 
 -- flash
 wk.add({
@@ -75,17 +81,17 @@ wk.add({
 
 -- LSP
 wk.add({
-    { "<leader>la", vim.lsp.buf.code_action,     group = "LSP", desc = "Code Action" },
-    { "<leader>ld", builtin.lsp_definitions,     group = "LSP", desc = "Definition" },
-    { "<leader>lr", builtin.lsp_references,      group = "LSP", desc = "References" },
-    { "<leader>lR", vim.lsp.buf.rename,          group = "LSP", desc = "Rename" },
-    { "<leader>lh", vim.lsp.buf.hover,           group = "LSP", desc = "Hover" },
-    { "<leader>li", builtin.lsp_implementations, group = "LSP", desc = "Implementation" },
-    { "<leader>lt", builtin.lsp_type_definition, group = "LSP", desc = "Type Definition" },
-    { "<leader>lf", vim.lsp.buf.formatting,      group = "LSP", desc = "Format" },
-    { "<leader>ll", vim.diagnostic.open_float,   group = "LSP", desc = "Diagnostics" },
+    { "<leader>la", vim.lsp.buf.code_action,                            desc = "Code Action" },
+    { "<leader>ld", builtin.lsp_definitions,                            desc = "Definition" },
+    { "<leader>lr", builtin.lsp_references,                             desc = "References" },
+    { "<leader>lR", vim.lsp.buf.rename,                                 desc = "Rename" },
+    { "<leader>lh", vim.lsp.buf.hover,                                  desc = "Hover" },
+    { "<leader>li", vim.lsp.buf.implementation,                         desc = "Implementation" },
+    { "<leader>ln", vim.lsp.buf.type_definition,                        desc = "Type Definition" },
+    { "<leader>lf", function() vim.lsp.buf.format { async = true } end, desc = "Format" },
+    { "<leader>ll", vim.diagnostic.open_float,                          desc = "Diagnostics" },
+    { "K",          vim.lsp.buf.hover,                                  desc = "Hover" },
 })
-map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- nvim-tree
 wk.add({
