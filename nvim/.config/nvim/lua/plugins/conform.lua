@@ -18,7 +18,7 @@ return {
             -- Conform will run multiple formatters sequentially
             -- Use a sub-list to run only the first available formatter
             css = { "prettier" },
-            go = { { "gofumpt", "gofmt" }, { "goimports-revise", "goimports" }, "golines" },
+            go = { { "gofumpt", "gofmt" }, "goimports", "golines" },
             html = { "prettier" },
             javascript = { { "prettierd", "prettier" } },
             javascriptreact = { "prettier" },
