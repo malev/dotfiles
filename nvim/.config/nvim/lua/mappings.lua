@@ -3,8 +3,6 @@ local wk = require("which-key")
 local builtin = require("telescope.builtin")
 
 -- General keymaps
-map("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
-map("i", "ii", "<ESC>", { desc = "exit insert mode with ii" })
 map("n", "<leader>wq", ":wq<CR>") -- save and quit
 map("n", "<leader>qq", ":q!<CR>") -- quit without saving
 map("n", "<leader>ww", ":w<CR>")  -- save
@@ -36,8 +34,6 @@ wk.add({
 
     { "<S-h>",      "<cmd>BufferLineCyclePrev<cr>",    desc = "Prev Bufer" },
     { "<S-l>",      "<cmd>BufferLineCycleNext<cr>",    desc = "Prev Bufer" },
-    { "<C-[>",      "<cmd>BufferLineCyclePrev<cr>",    desc = "Prev Bufer" },
-    { "<C-]>",      "<cmd>BufferLineCycleNext<cr>",    desc = "Prev Bufer" },
 
     { "<leader>1",  "<Cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
     { "<leader>2",  "<Cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
