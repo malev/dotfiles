@@ -30,6 +30,9 @@ config.keys = {
         mods = 'CTRL',
         action = act.ClearScrollback 'ScrollbackAndViewport',
     },
+    -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
+    { key = "LeftArrow",  mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+    { key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
 }
 
 return config
