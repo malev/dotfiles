@@ -5,9 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [ -e /opt/homebrew ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
   source ~/dotfiles/init/brew.sh
+  source ~/dotfiles/init/lang-mac.sh
+else
   source ~/dotfiles/init/lang.sh
+fi
+
+if [[ -f "$HOME/tokens.sh" ]]; then
+  source "$HOME/tokens.sh"
 fi
 
 # Set the directory we want to store zinit and plugins
