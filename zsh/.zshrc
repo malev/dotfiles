@@ -8,9 +8,8 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   source ~/dotfiles/init/brew.sh
   source ~/dotfiles/init/lang-mac.sh
-else
-  source ~/dotfiles/init/lang.sh
 fi
+source ~/dotfiles/init/lang.sh
 
 if [[ -f "$HOME/tokens.sh" ]]; then
   source "$HOME/tokens.sh"
