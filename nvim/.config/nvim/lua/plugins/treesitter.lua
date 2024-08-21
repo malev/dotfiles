@@ -4,6 +4,7 @@ local ensure_installed = {
 	"javascript",
 	"json",
 	"lua",
+	"luadoc",
 	"go",
 	"gomod",
 	"gowork",
@@ -19,6 +20,7 @@ local ensure_installed = {
 	"toml",
 	"tsx",
 	"typescript",
+	"vimdoc",
 	"yaml",
 	"tsx",
 }
