@@ -11,6 +11,19 @@ map("n", ":Q", ":q<CR>")          -- quit without saving
 map("n", ":Qa", ":qa<CR>")        -- quit all without saving
 map("n", ":W", ":w<CR>")          -- save
 
+wk.add({
+    { "<CR>",      group = "jump2d" },
+    { "<leader>b", group = "Buffers" },
+    { "<leader>c", group = "Undo" },
+    { "<leader>e", group = "NvimTree" },
+    { "<leader>f", group = "Telescope" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "LSP" },
+    { "<leader>q", group = "Quit" },
+    { "<leader>x", group = "Trouble" },
+    { "<leader>w", group = "Window" },
+})
+
 -- Split window management
 wk.add({
     { "<leader>wh", "<C-w>h",                desc = "Move to left window", },
@@ -57,12 +70,6 @@ wk.add({
     { "<leader>p",  '"*p',  desc = "Paste from clipboard" }
 })
 
--- flash
-wk.add({
-    { "<leader>ss", require('flash').jump,              group = "Flash", desc = "Flash Jump" },
-    { "<leader>st", require('flash').treesitter,        group = "Flash", desc = "Flash Treesitter" },
-    { "<leader>sr", require('flash').treesitter_search, group = "Flash", desc = "Flash Treesitter Search" },
-})
 
 -- GIT
 wk.add({

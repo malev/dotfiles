@@ -10,7 +10,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set nocompatible") -- disable compatibility to old-time vi
 vim.cmd("set showmatch")    -- show matching brackets.
 vim.cmd("set ignorecase")   -- case insensitive matching
-vim.cmd("set mouse=v")      -- middle-click paste with mouse
+vim.cmd("set mouse=a")      -- middle-click paste with mouse
 vim.cmd("set hlsearch")     -- highlight search results
 -- vim.cmd("set autoindent")            -- indent a new line the same amount as the line just typed
 -- vim.cmd("set number")                -- add line numbers

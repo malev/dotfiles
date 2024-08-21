@@ -20,6 +20,15 @@ local servers = {
     jsonls = {},
     lua_ls = {},
     pyright = {},
+    rust_analyzer = {
+        check = {
+            enable = true,
+            command = "clippy",
+        },
+        diagnostics = {
+            enable = true,
+        },
+    },
     tailwindcss = {},
     templ = {},
     terraformls = {},
