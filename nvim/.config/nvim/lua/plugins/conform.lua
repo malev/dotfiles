@@ -7,6 +7,12 @@ vim.g.toggle_autoformat = function()
         vim.api.nvim_notify("Autoformat is now disabled", vim.log.levels.WARN, {})
     end
 end
+vim.g.display_autoformat = function()
+    if vim.g.enable_autoformat then
+        return "Autoformat"
+    end
+    return "Autoformat off"
+end
 
 return {
     'stevearc/conform.nvim',

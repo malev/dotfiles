@@ -7,7 +7,7 @@ return {
                 theme = 'tokyonight'
             },
             sections = {
-                lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
+                lualine_x = { vim.g.display_autoformat, 'copilot', 'encoding', 'filetype' },
             }
         }
     end
