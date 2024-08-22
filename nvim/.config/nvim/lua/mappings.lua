@@ -93,6 +93,7 @@ wk.add({
     { "<leader>ln", vim.lsp.buf.type_definition,                        desc = "Type Definition" },
     { "<leader>lf", function() vim.lsp.buf.format { async = true } end, desc = "Format" },
     { "<leader>ll", vim.diagnostic.open_float,                          desc = "Diagnostics" },
+    { "<leader>lu", vim.g.toggle_autoformat,                            desc = "Toggle autoformat" },
     { "K",          vim.lsp.buf.hover,                                  desc = "Hover" },
 })
 

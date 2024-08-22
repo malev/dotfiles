@@ -1,3 +1,13 @@
+vim.g.enable_autoformat = true
+vim.g.toggle_autoformat = function()
+    vim.g.enable_autoformat = not vim.g.enable_autoformat
+    if vim.g.enable_autoformat then
+        vim.api.nvim_notify("Autoformat is now enabled", vim.log.levels.INFO, {})
+    else
+        vim.api.nvim_notify("Autoformat is now disabled", vim.log.levels.WARN, {})
+    end
+end
+
 return {
     'stevearc/conform.nvim',
     event = { "BufWritePre" },
@@ -30,7 +40,11 @@ return {
             ["_"] = { "trim_whitespace" },
         },
         -- Set up format-on-save
-        format_on_save = { async = false, timeout_ms = 500, lsp_fallback = true },
+        format_on_save = function()
+            if vim.g.enable_autoformat then
+                return { async = false, timeout_ms = 500, lsp_fallback = true }
+            end
+        end
     },
     config = function(_, opts)
         require('conform').setup(opts)
