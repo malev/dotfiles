@@ -1,30 +1,27 @@
 -- Set leader key to space
 vim.g.mapleader = " "
-
--- Set tab options
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-
-vim.cmd("set nocompatible") -- disable compatibility to old-time vi
-vim.cmd("set showmatch")    -- show matching brackets.
-vim.cmd("set ignorecase")   -- case insensitive matching
-vim.cmd("set mouse=a")      -- middle-click paste with mouse
-vim.cmd("set hlsearch")     -- highlight search results
--- vim.cmd("set autoindent")            -- indent a new line the same amount as the line just typed
--- vim.cmd("set number")                -- add line numbers
-vim.cmd("set wildmode=longest,list") -- get bash-like tab completions
-vim.cmd("set cc=100")                -- set colour columns for good coding style
+-- set colour columns for good coding style
+vim.opt.cc = "100"
+-- middle-click paste with mouse
+vim.opt.mouse = "a"
+-- get bash-like tab completions
+vim.opt.wildmode = "longest,list"
+-- Indentation
+vim.opt.expandtab = true             -- use spaces instead of tabs
+vim.opt.tabstop = 2                  -- number of spaces that a <Tab> in the file counts for
+vim.opt.softtabstop = 2              -- number of spaces that a <Tab> counts for while editing
+vim.opt.shiftwidth = 2               -- number of spaces to use for each step of (auto)indent
 vim.cmd("filetype plugin indent on") -- allows auto-indenting depending on file type
-
-vim.lsp.set_log_level('info')
-vim.g.background = "light"
-vim.g.have_nerd_font = true
+-- Vim Search Options
+vim.opt.ignorecase = true            -- ignore case when searching
+vim.opt.smartcase = true             -- unless capital letter in search
+vim.opt.hlsearch = true              -- highlight all matches on previous search pattern
+vim.opt.incsearch = true             -- incrementally highlight searches as you type
+-- Scroll Options
+vim.opt.scrolloff = 8                -- minimum number of lines to keep above and below the cursor
+vim.opt.sidescrolloff = 8            --minimum number of columns to keep above and below the cursor
+-- Line numbers
 vim.wo.number = true
-
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.opt.swapfile = false
 
 -- Show Hover and Signature Help windows with borders
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
@@ -46,17 +43,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Vim Search Options
-vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true  -- unless capital letter in search
-
-vim.opt.hlsearch = false  -- do not highlight all matches on previous search pattern
-vim.opt.incsearch = true  -- incrementally highlight searches as you type
-
--- Scroll Options
-vim.opt.scrolloff = 8     -- minimum number of lines to keep above and below the cursor
-vim.opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor
-
 -- JS and CSS formatting
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.js", "*.html", "*.css", "*.ts" },
@@ -66,3 +52,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     vim.opt.shiftwidth = 2
   end
 })
+
+-- Others
+vim.g.have_nerd_font = true
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.swapfile = false

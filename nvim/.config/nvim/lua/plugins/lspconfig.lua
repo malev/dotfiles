@@ -69,7 +69,7 @@ return {
             float = { border = border, width = 100 },
         })
 
-        vim.lsp.set_log_level 'WARN'
+        vim.lsp.set_log_level('info')
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 

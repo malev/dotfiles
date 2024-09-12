@@ -12,6 +12,7 @@ local ensure_installed = {
 	"gotmpl",
 	"markdown",
 	"markdown_inline",
+	"nix",
 	"python",
 	"query",
 	"regex",
