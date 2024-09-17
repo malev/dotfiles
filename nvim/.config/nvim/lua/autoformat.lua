@@ -1,3 +1,5 @@
+local autoformat = {}
+
 vim.g.enable_autoformat = true
 vim.g.toggle_autoformat = function()
     vim.g.enable_autoformat = not vim.g.enable_autoformat
@@ -7,28 +9,9 @@ vim.g.toggle_autoformat = function()
         vim.api.nvim_notify("Autoformat is now disabled", vim.log.levels.WARN, {})
     end
 end
-vim.g.display_autoformat = function()
-    if vim.g.enable_autoformat then
-        return "Autoformat"
-    end
-    return "Autoformat off"
-end
 
-return {
-    'stevearc/conform.nvim',
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    keys = {
-        {
-            "<leader>cf",
-            function()
-                require("conform").format({ async = true, lsp_fallback = true })
-            end,
-            mode = "",
-            desc = "Format buffer",
-        },
-    },
-    opts = {
+function autoformat.setup()
+    require('conform').setup({
         -- Define your formatters
         formatters_by_ft = {
             -- Conform will run multiple formatters sequentially
@@ -51,8 +34,7 @@ return {
                 return { async = false, timeout_ms = 500, lsp_fallback = true }
             end
         end
-    },
-    config = function(_, opts)
-        require('conform').setup(opts)
-    end
-}
+    })
+end
+
+return autoformat

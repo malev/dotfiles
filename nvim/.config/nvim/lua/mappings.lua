@@ -1,130 +1,53 @@
-local map = vim.keymap.set
-local wk = require("which-key")
-local builtin = require("telescope.builtin")
+local mappings = {}
 
--- General keymaps
-map("n", "<leader>wq", ":wq<CR>") -- save and quit
-map("n", "<leader>qq", ":q!<CR>") -- quit without saving
-map("n", "<leader>ww", ":w<CR>")  -- save
+function mappings.setup()
+    local map = vim.keymap.set
+    local builtin = require("telescope.builtin")
+    local lsp_format = function()
+        vim.lsp.buf.format({ async = true })
+    end
+    -- General keymaps
+    map("n", "<leader>wq", ":wq<CR>", { desc = "Quit" })                -- save and quit
+    map("n", "<leader>qq", ":q!<CR>", { desc = "Quit without saving" }) -- quit without saving
+    map("n", "<leader>ww", ":w<CR>", { desc = "Save" })                 -- save
+    map("n", ":Q", ":q<CR>")                                            -- quit without saving
+    map("n", ":Qa", ":qa<CR>")                                          -- quit all without saving
+    map("n", ":W", ":w<CR>")                                            -- save
+    -- Window
+    map("n", "<leader>w", "<C-w>", { desc = "More accessible window management" })
+    map("n", "<leader>wm", ":only<cr>", { desc = "Maximize" })
+    -- -- Buffers
+    map("n", "<leader>br", "<cmd>e!<cr>", { desc = "Reload buffer" })
+    map("n", "<leader>bx", ":bdelete<cr>", { desc = "Close buffer" })
+    map("n", "<S-h>", "<cmd>:bprevious<cr>", { desc = "Prev Buffer" })
+    map("n", "<S-l>", "<cmd>:bnext<cr>", { desc = "Next Buffer" })
+    -- -- yank to system clipboard
+    map("v", "<leader>y", '"*y', { desc = "Yank to clipboard" })
+    map("v", "<leader>Y", '"+Y', { desc = "Yank line to clipboard" })
+    map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
+    map("n", "<leader>p", '"*p', { desc = "Paste from clipboard" })
+    -- -- LSP
+    map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
+    map("n", "<leader>ld", builtin.lsp_definitions, { desc = "Definition" })
+    map("n", "<leader>lr", builtin.lsp_references, { desc = "References" })
+    map("n", "<leader>lR", vim.lsp.buf.rename, { desc = "Rename" })
+    map("n", "<leader>lh", vim.lsp.buf.hover, { desc = "Hover" })
+    map("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Implementation" })
+    map("n", "<leader>ln", vim.lsp.buf.type_definition, { desc = "Type Definition" })
+    map("n", "<leader>lf", lsp_format, { desc = "Format" })
+    map("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Diagnostics" })
+    map("n", "<leader>lu", vim.g.toggle_autoformat, { desc = "Toggle autoformat" })
+    map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+    -- -- mini files
+    map("n", "<leader>ee", require("mini.files").open, { desc = "Mini files" })
+    map("n", "<leader>eh", require("mini.files").show_help, { desc = "Mini files help" })
+    -- Telescope
+    map("n", "<leader>ff", builtin.find_files, { desc = "Find File" })
+    map("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
+    map("n", "<leader>fg", builtin.live_grep, { desc = "Grep All" })
+    map("n", "<leader>fG", builtin.grep_string, { desc = "Grep Current Word" })
+    map("n", "<leader>fb", builtin.buffers, { desc = "Grep Buffers" })
+    map("n", "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "FF Current Buffer" })
+end
 
-map("n", ":Q", ":q<CR>")          -- quit without saving
-map("n", ":Qa", ":qa<CR>")        -- quit all without saving
-map("n", ":W", ":w<CR>")          -- save
-
-wk.add({
-    { "<CR>",      group = "jump2d" },
-    { "<leader>b", group = "Buffers" },
-    { "<leader>c", group = "Undo" },
-    { "<leader>e", group = "NvimTree" },
-    { "<leader>f", group = "Telescope" },
-    { "<leader>g", group = "Git" },
-    { "<leader>l", group = "LSP" },
-    { "<leader>q", group = "Quit" },
-    { "<leader>x", group = "Trouble" },
-    { "<leader>w", group = "Window" },
-})
-
--- Split window management
-wk.add({
-    { "<leader>wh", "<C-w>h",                desc = "Move to left window", },
-    { "<leader>wl", "<C-w>l",                desc = "Move to rigth window", },
-    { "<leader>wj", "<C-w>j",                desc = "Move to bottom window", },
-    { "<leader>wk", "<C-w>k",                desc = "Move to top window", },
-    { "<leader>wv", "<C-w>v",                desc = "Split window vertically", },
-    { "<leader>ws", "<C-w>s",                desc = "Split window horizontally", },
-    { "<leader>wH", "<C-w>H",                desc = "Move buffer to left window", },
-    { "<leader>wL", "<C-w>L",                desc = "Move buffer to rigth window", },
-    { "<leader>wm", ":MaximizerToggle!<CR>", desc = "Maximize", },
-})
-
--- Buffers
-wk.add({
-    { "<leader>bl", "<cmd>e #<cr>",                    desc = "Switch to last buffer" },
-    { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>",  desc = "Delete Other Buffers" },
-    { "<leader>bp", "<cmd>BufferLineTogglePin<cr>",    desc = "Toggle Pin" },
-    { "<leader>br", "<cmd>e!<cr>",                     desc = "Reload buffer" },
-    { "<leader>z",  "<cmd>bdelete<cr>",                desc = "Close buffer" },
-
-    { "<S-h>",      "<cmd>BufferLineCyclePrev<cr>",    desc = "Prev Bufer" },
-    { "<S-l>",      "<cmd>BufferLineCycleNext<cr>",    desc = "Prev Bufer" },
-
-    { "<leader>1",  "<Cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-    { "<leader>2",  "<Cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-    { "<leader>3",  "<Cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-    { "<leader>4",  "<Cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-})
-
--- Undo tree
-wk.add(
-    { "<leader>cu", "<cmd>UndotreeToggle<CR>", desc = "Open undotree" }
-)
-
--- yank to system clipboard
-wk.add({
-    mode = { "v" },
-    { "<leader>y", '"*y', desc = "Yank to clipboard" },
-    { "<leader>Y", '"+Y', desc = "Yank line to clipboard" },
-}, {
-    mode = { "n" },
-    { "<leader>yy", '"+yy', desc = "Yank line to clipboard" },
-    { "<leader>p",  '"*p',  desc = "Paste from clipboard" }
-})
-
-
--- GIT
-wk.add({
-    { "<leader>gs", "<cmd>Git<cr>",       group = "Git", desc = "Git Status" },
-    { "<leader>gd", "<cmd>Git diff<cr>",  group = "Git", desc = "Git Diff" },
-    { "<leader>gl", "<cmd>Git log<cr>",   group = "Git", desc = "Git Log" },
-    { "<leader>gb", "<cmd>Git blame<cr>", group = "Git", desc = "Git Blame" },
-    -- Consider:
-    -- require('gitsigns').preview_hunk
-    -- require('gitsigns').toggle_current_line_blame
-})
-
--- LSP
-wk.add({
-    { "<leader>la", vim.lsp.buf.code_action,                            desc = "Code Action" },
-    { "<leader>ld", builtin.lsp_definitions,                            desc = "Definition" },
-    { "<leader>lr", builtin.lsp_references,                             desc = "References" },
-    { "<leader>lR", vim.lsp.buf.rename,                                 desc = "Rename" },
-    { "<leader>lh", vim.lsp.buf.hover,                                  desc = "Hover" },
-    { "<leader>li", vim.lsp.buf.implementation,                         desc = "Implementation" },
-    { "<leader>ln", vim.lsp.buf.type_definition,                        desc = "Type Definition" },
-    { "<leader>lf", function() vim.lsp.buf.format { async = true } end, desc = "Format" },
-    { "<leader>ll", vim.diagnostic.open_float,                          desc = "Diagnostics" },
-    { "<leader>lu", vim.g.toggle_autoformat,                            desc = "Toggle autoformat" },
-    { "K",          vim.lsp.buf.hover,                                  desc = "Hover" },
-})
-
--- nvim-tree
-wk.add({
-    { "<leader>ee", "<cmd>NvimTreeToggle<cr>",                 group = "NvimTree", desc = "Toggle" },
-    { "<leader>ef", "<cmd>NvimTreeFindFile<cr>",               group = "NvimTree", desc = "Find File" },
-    { "<leader>eh", require('nvim-tree.api').tree.toggle_help, group = "NvimTree", desc = "Toggle Help" },
-})
-
--- Oil
-wk.add(
-    { "<leader>-", "<cmd>Oil<cr>", group = "Oil", desc = "Oil" }
-)
-
--- Telescope keymappings
-wk.add({
-    { "<leader>ff", builtin.find_files,                                        group = "Telescope", desc = "Find File" },
-    { "<leader>fg", builtin.live_grep,                                         group = "Telescope", desc = "Grep All" },
-    { "<leader>fG", builtin.grep_string,                                       group = "Telescope", desc = "Grep current word" },
-    { "<leader>fb", builtin.buffers,                                           group = "Telescope", desc = "Grep Buffers" },
-    { "<leader>fh", builtin.help_tags,                                         group = "Telescope", desc = "Help" },
-    { "<leader>fs", builtin.current_buffer_fuzzy_find,                         group = "Telescope", desc = "Fuzzy Finder in current buffer" },
-    { "<leader>fe", require("telescope").extensions.file_browser.file_browser, group = "Telescope", desc = "File Browser" },
-
-})
-
--- Trouble
-wk.add({
-    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              group = "Trouble", desc = "Workspace Diagnostics" },
-    { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", group = "Trouble", desc = "Diagnostics current buffer" },
-    { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>",                 group = "Trouble", desc = "Quickfix" },
-    { "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>",           group = "Trouble", desc = "References" },
-})
+return mappings
