@@ -54,22 +54,3 @@ later(require("autoformat").setup)
 later(require("completion").setup)
 later(require("treesitter").setup)
 later(require("mappings").setup)
-
-
--- Display Whitespace
-local space = "·"
-vim.opt.list = true
-vim.opt.listchars:append {
-    tab = "│─",
-    multispace = space,
-    lead = space,
-    trail = space,
-    nbsp = space
-}
-
-local nvim_set_hl = vim.api.nvim_set_hl
-vim.cmd([[match TrailingWhitespace /\s\+$/]])
-nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
-
-vim.cmd([[match TrailingWhitespace /\s\+$/]])
-nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
