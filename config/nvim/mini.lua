@@ -1,7 +1,6 @@
 require("mini.bufremove").setup()
 require("mini.comment").setup()
 require("mini.cursorword").setup()
-require("mini.files").setup()
 require("mini.fuzzy").setup()
 require("mini.icons").setup()
 require("mini.indentscope").setup()

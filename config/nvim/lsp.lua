@@ -26,8 +26,7 @@ local servers = {
     },
     pyright = {},
     ruby_lsp = {},
-    -- ts_ls = {},
-    tsserver = {},
+    ts_ls = {},
 }
 
 local border = {

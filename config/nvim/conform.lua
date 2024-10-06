@@ -19,10 +19,10 @@ require("conform").setup({
         -- Conform will run multiple formatters sequentially
         -- Use a sub-list to run only the first available formatter
         css = { "prettier" },
-        go = { { "gofumpt", "gofmt" }, "goimports", "golines" },
+        go = { "gofumpt", "goimports", "golines", stop_after_first = false },
         html = { "prettier" },
-        javascript = { { "prettierd", "prettier" } },
-        javascriptreact = { "prettier" },
+        javascript = { "prettierd", "prettier", "eslint_d", stop_after_first = false },
+        javascriptreact = { "prettier", "eslint" },
         lua = { "stylua" },
         nix = { "nixfmt", "nixpkgs_fmt" },
         python = { "isort", "black" },

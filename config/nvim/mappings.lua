@@ -43,9 +43,10 @@ map("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Diagnostics" })
 map("n", "<leader>lu", vim.g.toggle_autoformat, { desc = "Toggle autoformat" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
--- mini files
-map("n", "<leader>ee", require("mini.files").open, { desc = "Mini files" })
-map("n", "<leader>eh", require("mini.files").show_help, { desc = "Mini files help" })
+-- Nvim tree
+map("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Nvim tree" })
+map("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Nvim find file" })
+map("n", "<leader>eh", require('nvim-tree.api').tree.toggle_help, { desc = "Nvim help" })
 
 -- Telescope
 map("n", "<leader>ff", builtin.find_files, { desc = "Find File" })

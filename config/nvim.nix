@@ -38,13 +38,18 @@ in
         plugin = nvim-autopairs;
         config = toLua "require('nvim-autopairs').setup()";
       }
+      { plugin = nvim-lint; }
+      {
+        plugin = nvim-lspconfig;
+        config = toLuaFile ./nvim/lsp.lua;
+      }
       {
         plugin = nvim-ts-autotag;
         config = toLua "require('nvim-ts-autotag').setup()";
       }
       {
-        plugin = nvim-lspconfig;
-        config = toLuaFile ./nvim/lsp.lua;
+        plugin = nvim-tree-lua;
+        config = toLuaFile ./nvim/nvim-tree.lua;
       }
       { plugin = plenary-nvim; }
       { plugin = rest-nvim; }
