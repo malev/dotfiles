@@ -38,7 +38,6 @@ in
         plugin = nvim-autopairs;
         config = toLua "require('nvim-autopairs').setup()";
       }
-      { plugin = nvim-lint; }
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./nvim/lsp.lua;
